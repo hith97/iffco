@@ -3,6 +3,7 @@
 import { useState } from "react";
 import footerbg from "../../assets/footerbg.jpg";
 import logo from "../../assets/footerlogo.png";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -32,11 +33,9 @@ export default function Footer() {
       <div className="border-b border-green-500/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
           <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
-            {/* Logo */}
-            <div className="w-[30%]">
-              <div className="flex">
-                <img src={logo} alt="Logo" className="" />
-              </div>
+            {/* Logo + Social Icons */}
+            <div className="w-full lg:w-[30%] space-y-4">
+              <img src={logo} alt="Logo" className="" />
               <div className="flex gap-3">
                 {socialIcons.map((social, index) => (
                   <a
@@ -50,54 +49,61 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Links */}
-            <div className="w-[70%] flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16">
+            {/* Footer Links Section */}
+            <div className="w-full lg:w-[70%] flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16">
+              {/* Column 1 */}
               <div className="space-y-3">
-                <h3 className="font-medium hover:text-green-200 cursor-pointer transition-colors duration-200">
-                  Home
-                </h3>
-                <h3 className="font-medium hover:text-green-200 cursor-pointer transition-colors duration-200">
-                  About IFFCO-MC
-                </h3>
-                <h3 className="font-medium hover:text-green-200 cursor-pointer transition-colors duration-200">
-                  Vision and Mission
-                </h3>
-                <h3 className="font-medium hover:text-green-200 cursor-pointer transition-colors duration-200">
-                  Quality Policy
-                </h3>
-                <h3 className="font-medium hover:text-green-200 cursor-pointer transition-colors duration-200">
-                  Board of Directors
-                </h3>
+                {[
+                  { name: "Home", href: "/" },
+                  { name: "About IFFCO-MC", href: "/aboutus" },
+                  { name: "Vision and Mission", href: "/vision-mission" },
+                  { name: "Quality Policy", href: "/quality-policy" },
+                  { name: "Board of Directors", href: "/board-of-directors" },
+                ].map((item, index) => (
+                  <Link
+                    key={index}
+                    to={item.href}
+                    className="block text-white hover:text-green-200 transition-colors duration-200"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
               </div>
 
+              {/* Column 2 */}
               <div className="space-y-3">
-                <h3 className="font-medium hover:text-green-200 cursor-pointer transition-colors duration-200">
-                  Products
-                </h3>
-                <h3 className="font-medium hover:text-green-200 cursor-pointer transition-colors duration-200">
-                  Events/Testimonials
-                </h3>
-                <h3 className="font-medium hover:text-green-200 cursor-pointer transition-colors duration-200">
-                  CSR Policy
-                </h3>
-                <h3 className="font-medium hover:text-green-200 cursor-pointer transition-colors duration-200">
-                  Videos
-                </h3>
-                <h3 className="font-medium hover:text-green-200 cursor-pointer transition-colors duration-200">
-                  ICSR
-                </h3>
+                {[
+                  { name: "Products", href: "/products" },
+                  { name: "Events/Testimonials", href: "/events" },
+                  { name: "CSR Policy", href: "/csr-policy" },
+                  { name: "Video", href: "/videos" },
+                  { name: "KSBY", href: "/ksby" },
+                ].map((item, index) => (
+                  <Link
+                    key={index}
+                    to={item.href}
+                    className="block text-white hover:text-green-200 transition-colors duration-200"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
               </div>
 
+              {/* Column 3 */}
               <div className="space-y-3">
-                <h3 className="font-medium hover:text-green-200 cursor-pointer transition-colors duration-200">
-                  Privacy Policy
-                </h3>
-                <h3 className="font-medium hover:text-green-200 cursor-pointer transition-colors duration-200">
-                  Contact Us
-                </h3>
-                <h3 className="font-medium hover:text-green-200 cursor-pointer transition-colors duration-200">
-                  Career
-                </h3>
+                {[
+                  { name: "Privacy Policy", href: "/privacy-policy" },
+                  { name: "Contact Us", href: "/contact" },
+                  { name: "Career", href: "/career" },
+                ].map((item, index) => (
+                  <Link
+                    key={index}
+                    to={item.href}
+                    className="block font-medium text-white hover:text-green-200 transition-colors duration-200"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
               </div>
             </div>
           </div>

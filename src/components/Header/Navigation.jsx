@@ -9,7 +9,7 @@ export function Navbar() {
   const navigationItems = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/aboutus" },
-    { name: "Products", href: "/products" },
+    { name: "Presence", href: "/presence" },
     { name: "Services", href: "/services" },
     { name: "Annual Report", href: "/annual-report" },
     { name: "CSR", href: "/csr" },

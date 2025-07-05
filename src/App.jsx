@@ -10,6 +10,9 @@ import ProductListing from "./pages/ProductListing"
 import AppLayout from "./layouts/Applayout";
 import ProductSingle from "./pages/ProductSingle";
 import Aboutus from "./pages/Aboutus";
+import Contactus from "./pages/Contactus";
+import Presence from "./pages/Presence";
+
 
 function App() {
   return (
@@ -20,6 +23,8 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/aboutus" element={<Aboutus />} /> 
             <Route path="/products" element={<ProductListing />} />
+            <Route path="/contact" element={<Contactus />} />
+            <Route path="/presence" element={<Presence />} /> 
             <Route path="/:categorySlug/:productSlug" element={<ProductSingle />} />
           </Route>
         </Routes>
