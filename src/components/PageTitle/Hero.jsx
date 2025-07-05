@@ -12,7 +12,7 @@ export default function HeroTitle({ title }) {
     >
       <div className="container">
         <div className="py-[90px]">
-          <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold relative z-[1]">
+          <h1 className="max-w-[370px] text-white text-3xl md:text-4xl lg:text-5xl font-bold relative z-[1]">
             {title}
           </h1>
         </div>
