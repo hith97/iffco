@@ -1,10 +1,12 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import TestiImg from "../../assets/testimonial.jpg"
+import { useState } from "react";
+import TestiImg from "../../assets/testimonial.jpg";
+import TopQuote from "../../assets/tq.png";
+import BotQuote from "../../assets/bq.png";
 
 export default function TestimonialSection() {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0)
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const testimonials = [
     {
@@ -19,24 +21,30 @@ export default function TestimonialSection() {
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       subtitle: "Village name",
     },
-  ]
+  ];
 
   const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
-  }
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
 
   const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)
-  }
+    setCurrentTestimonial(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
+  };
 
-  const testimonial = testimonials[currentTestimonial]
+  const testimonial = testimonials[currentTestimonial];
 
   return (
     <section className="w-full bg-yellow-50 py-12 md:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-green-600 text-3xl md:text-4xl lg:text-5xl font-bold mb-4">IIFCO-MC Kisaan</h2>
-          <p className="text-gray-600 text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+          <h2 className="text-green-600 text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            IIFCO-MC Kisaan
+          </h2>
+          <p className="text-gray-600 text-lg">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          </p>
         </div>
 
         <div className="flex items-center justify-center relative">
@@ -48,15 +56,21 @@ export default function TestimonialSection() {
           </button>
 
           <div className="relative max-w-4xl mx-auto">
-            <div className="absolute -top-4 -left-4 text-green-600 text-6xl md:text-7xl lg:text-8xl font-serif leading-none">
-              &ldquo;
+            <div className="absolute -top-24 -left-24 z-0 text-green-600 text-6xl md:text-7xl lg:text-8xl font-serif leading-none">
+              <img src={TopQuote} />
             </div>
 
             <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 overflow-hidden testiin">
               <div className="w-[60%] text-left p-[80px] pr-[20px]">
-                <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-6">{testimonial.text}</p>
-                <h3 className="text-black font-bold text-lg md:text-3xl mb-2">{testimonial.name}</h3>
-                <p className="text-[#ED1C24] text-sm md:text-xl">{testimonial.subtitle}</p>
+                <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-6">
+                  {testimonial.text}
+                </p>
+                <h3 className="text-black font-bold text-lg md:text-3xl mb-2">
+                  {testimonial.name}
+                </h3>
+                <p className="text-[#ED1C24] text-sm md:text-xl">
+                  {testimonial.subtitle}
+                </p>
               </div>
 
               <div className="w-[40%] overflow-hidden shadow-lg rightimg">
@@ -68,8 +82,8 @@ export default function TestimonialSection() {
               </div>
             </div>
 
-            <div className="absolute -bottom-4 -right-4 text-green-600 text-6xl md:text-7xl lg:text-8xl font-serif leading-none">
-              &rdquo;
+            <div className="absolute -bottom-24 -right-24 text-green-600 text-6xl md:text-7xl lg:text-8xl font-serif leading-none">
+              <img src={BotQuote} />
             </div>
           </div>
 
@@ -82,5 +96,5 @@ export default function TestimonialSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
