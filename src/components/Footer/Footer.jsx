@@ -58,7 +58,7 @@ export default function Footer() {
                   { name: "About IFFCO-MC", href: "/aboutus" },
                   { name: "Vision and Mission", href: "/vision-mission" },
                   { name: "Quality Policy", href: "/quality-policy" },
-                  { name: "Board of Directors", href: "/board-of-directors" },
+                  { name: "Board of Directors", href: "/aboutus#board-of-director" },
                 ].map((item, index) => (
                   <Link
                     key={index}
