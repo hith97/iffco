@@ -12,7 +12,7 @@ export default function ProductSingleSection() {
     const fetchProductBySlug = async () => {
       try {
         const res = await fetch(
-          `http://localhost:8082/ifc/wp-json/wp/v2/product?slug=${productSlug}&_embed`
+          `http://theninedigital.com.au/iffco/wp-json/wp/v2/product?slug=${productSlug}&_embed`
         );
         const data = await res.json();
 

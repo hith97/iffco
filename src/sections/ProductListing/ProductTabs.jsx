@@ -12,7 +12,8 @@ export default function ProductTabs() {
 
   // Fetch categories on mount
   useEffect(() => {
-    fetch("http://localhost:8082/ifc/wp-json/wp/v2/product_category")
+    // const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+    fetch(`http://theninedigital.com.au/iffco/wp-json/wp/v2/product_category`)
       .then((res) => res.json())
       .then((data) => {
         const formatted = data.map((cat) => ({
@@ -29,10 +30,11 @@ export default function ProductTabs() {
 
   // Fetch products based on active tab
   useEffect(() => {
+   // const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
     const url =
       activeTab === "all"
-        ? `http://localhost:8082/ifc/wp-json/wp/v2/product?per_page=100&_embed`
-        : `http://localhost:8082/ifc/wp-json/wp/v2/product?product_category_slug=${activeTab}&per_page=100&_embed`;
+        ? `http://theninedigital.com.au/iffco/wp-json/wp/v2/product?per_page=100&_embed`
+        : `http://theninedigital.com.au/iffco/wp-json/wp/v2/product?product_category_slug=${activeTab}&per_page=100&_embed`;
 
     fetch(url)
       .then((res) => res.json())

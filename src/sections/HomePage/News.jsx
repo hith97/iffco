@@ -1,64 +1,44 @@
-import news from "../../assets/news.png";
+"use client";
 
-export default function NewsSection() {
-  const newsItems = [
-    {
-      id: 1,
-      category: "News",
-      date: "FEB 20, 2023",
-      title:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      color: "bg-green-600",
-    },
-    {
-      id: 2,
-      category: "Media Release",
-      date: "FEB 20, 2023",
-      title:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      color: "bg-green-600",
-    },
-    {
-      id: 3,
-      category: "Videos",
-      date: "FEB 20, 2023",
-      title:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      color: "bg-green-600",
-    },
-  ];
+export default function NewsSection({ data }) {
+  if (!data) return null;
+
+  const { title, subtitle, items = [] } = data;
 
   return (
     <section className="w-full bg-yellow-50 py-12 md:py-16 lg:py-20 bg-[#F5F6E8]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-green-600 text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Latest From IFFCO-MC
+            {title}
           </h2>
-          <p className="text-gray-600 text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit
-          </p>
+          <p className="text-gray-600 text-lg">{subtitle}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {newsItems.map((item) => (
+          {items.map((item, index) => (
             <div
-              className="bg-white overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col"
               key={item.id}
+              className="bg-white overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col"
             >
               <div className="flex items-center justify-between">
-                <div
-                  className={`${item.color} catnews text-white px-3 py-2 text-lg`}
-                >
+                <div className="bg-green-600 catnews text-white px-3 py-2 text-lg">
                   {item.category}
                 </div>
               </div>
 
               <div className="p-4 flex-grow">
-                <div className="text-gray-500 text-sm mb-4">{item.date}</div>
-                <p className="text-gray-700 text-left leading-relaxed text-sm md:text-base">
-                  {item.title}
-                </p>
+                <div className="text-gray-500 text-sm mb-4">
+                  {new Date().toLocaleDateString("en-IN", {
+                    month: "short",
+                    day: "numeric",
+                    year: "numeric",
+                  })}
+                </div>
+                <div
+                  className="text-gray-700 text-left leading-relaxed text-sm md:text-base"
+                  dangerouslySetInnerHTML={{ __html: item.title }}
+                />
               </div>
 
               <div className="p-4 pt-0">
@@ -72,7 +52,7 @@ export default function NewsSection() {
 
               <div className="h-48 overflow-hidden">
                 <img
-                  src={news}
+                  src={item.image || "/placeholder.png"}
                   alt={item.category}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
