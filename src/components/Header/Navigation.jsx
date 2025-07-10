@@ -17,11 +17,11 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="bg-white border-b border-gray-200 shadow-sm">
+    <nav className="bg-white">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between py-2">
           {/* Logo */}
-          <div className="flex items-center max-w-[260px]">
+          <div className="flex items-center max-w-[150px]">
             <div className="text-white px-4 py-2 rounded-t-lg font-bold text-lg">
               <img src={logo} alt="Logo" className="w-full" />
             </div>

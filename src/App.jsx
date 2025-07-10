@@ -16,6 +16,13 @@ import QualityPolicy from "./pages/QualityPolicy";
 import Services from "./pages/Services";
 import WhatWeAre from "./pages/WhatWeAre";
 import WhereWeAre from "./pages/WhereWeAre";
+import News from "./pages/News";
+import Media from "./pages/Media";
+import Video from "./pages/Video";
+import Privacy from "./pages/Privacy";
+import Career from "./pages/Career";
+import AnnualReport from "./pages/AnnualReport";
+import CSR from "./pages/CSR";
 
 
 function App() {
@@ -33,6 +40,13 @@ function App() {
             <Route path="/services" element={<Services />} /> 
             <Route path="/whatweare" element={<WhatWeAre />} /> 
             <Route path="/whereweare" element={<WhereWeAre />} /> 
+            <Route path="/news" element={<News />} /> 
+            <Route path="/media" element={<Media />} /> 
+            <Route path="/videos" element={<Video />} /> 
+            <Route path="/privacy-policy" element={<Privacy />} /> 
+            <Route path="/career" element={<Career />} /> 
+            <Route path="/annual-report" element={<AnnualReport />} /> 
+            <Route path="/csr" element={<CSR />} />  
             <Route path="/:categorySlug/:productSlug" element={<ProductSingle />} />
           </Route>
         </Routes>

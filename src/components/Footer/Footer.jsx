@@ -56,7 +56,7 @@ export default function Footer() {
                 {[
                   { name: "Home", href: "/" },
                   { name: "About IFFCO-MC", href: "/aboutus" },
-                  { name: "Vision and Mission", href: "/vision-mission" },
+                  { name: "Vision and Mission", href: "/aboutus#vision" },
                   { name: "Quality Policy", href: "/quality-policy" },
                   { name: "Board of Directors", href: "/aboutus#board-of-director" },
                 ].map((item, index) => (
@@ -75,7 +75,7 @@ export default function Footer() {
                 {[
                   { name: "Products", href: "/products" },
                   { name: "Events/Testimonials", href: "/events" },
-                  { name: "CSR Policy", href: "/csr-policy" },
+                  { name: "CSR Policy", href: "/csr" },
                   { name: "Video", href: "/videos" },
                   { name: "KSBY", href: "/ksby" },
                 ].map((item, index) => (

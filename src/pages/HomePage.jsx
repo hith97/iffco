@@ -77,24 +77,28 @@ function HomePage() {
           news: {
             title: "Latest From IFFCO-MC", // static or from ACF
             subtitle: "What's happening across India", // static or from ACF
+            
             items: [
               {
                 id: 1,
                 category: "News",
                 title: acf.highlight_news_brief,
                 image: acf.news_image,
+                link: acf.news_link,
               },
               {
                 id: 2,
                 category: "Media Release",
                 title: acf.media_brief,
                 image: acf.media_image,
+                link: acf.media_link,
               },
               {
                 id: 3,
                 category: "Videos",
                 title: acf.videos_brief,
                 image: acf.video_image,
+                link: acf.videos_link,
               },
             ],
           },

@@ -1,4 +1,5 @@
 "use client";
+import { Link } from "react-router-dom";
 
 export default function NewsSection({ data }) {
   if (!data) return null;
@@ -42,12 +43,18 @@ export default function NewsSection({ data }) {
               </div>
 
               <div className="p-4 pt-0">
-                <button className="text-green-600 font-bold flex items-center hover:text-green-700 transition-colors duration-200 group">
-                  {item.category === "Videos" ? "View More" : "Read More"}
-                  <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-200">
-                    →
-                  </span>
-                </button>
+                {item.link && (
+                  <Link
+  to={item.link}
+  className="text-green-600 font-bold flex items-center hover:text-green-700 transition-colors duration-200 group"
+>
+  {item.category === "Videos" ? "View More" : "Read More"}
+  <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-200">
+    →
+  </span>
+</Link>
+
+                )}
               </div>
 
               <div className="h-48 overflow-hidden">

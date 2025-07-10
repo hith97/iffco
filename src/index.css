@@ -83,3 +83,10 @@ section.bannermain::after {
     z-index: 0;
     transform: skewX(-25deg);
 }
+.bgc-dark .number {
+    background: #fff;
+    color: #008C44;
+}
+.bgc-dark .descon p {
+    color: #fff;
+}
