@@ -7,6 +7,7 @@ function PresenseCon() {
       <div className="presensemai py-8">
         <div className="container">
           <h2>Presence</h2>
+          <p>IFFCO-MC’s operations are spread all over India.</p>
           <div className="imgpre">
             <img src={mapimg} alt="Map" className="w-full" />
           </div>

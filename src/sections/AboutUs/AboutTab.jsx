@@ -8,7 +8,7 @@ import VisionMision from "./VisionMision";
 import SalesDistributionNetwork from "./SalesDistributionNetwork";
 import Development from "./Development";
 
-export default function InfoTabs() {
+export default function InfoTabs({ acfData }) {
   const tabs = [
     { id: "about", label: "About IIFCO-MC" },
     { id: "objectives", label: "Core Objectives" },
@@ -70,9 +70,9 @@ export default function InfoTabs() {
 
         {/* Static Tab Content */}
         <div className="text-gray-800 space-y-4">
-          {activeTab === "about" && <AboutInfo />}
-          {activeTab === "objectives" && <CoreObjective />}
-          {activeTab === "vision" && <VisionMision />}
+          {activeTab === "about" && <AboutInfo html={acfData.about} />}
+          {activeTab === "objectives" && <CoreObjective data={acfData.coreObjectives} />}
+          {activeTab === "vision" && <VisionMision data={acfData.visionMission} />}
           {activeTab === "infrastructure" && <SalesDistributionNetwork />}
           {activeTab === "innovation" && <Development />}
           {activeTab === "board-of-director" && <BoardOfDirectors />}

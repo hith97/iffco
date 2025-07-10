@@ -1,10 +1,10 @@
-import { useState } from "react"
-import logo from '../../assets/logo.png'
-import { Link } from "react-router-dom"
+import { useState } from "react";
+import logo from "../../assets/logo.png";
+import { Link } from "react-router-dom";
 
 export function Navbar() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [searchQuery, setSearchQuery] = useState("")
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const navigationItems = [
     { name: "Home", href: "/" },
@@ -14,7 +14,7 @@ export function Navbar() {
     { name: "Annual Report", href: "/annual-report" },
     { name: "CSR", href: "/csr" },
     { name: "Contact Us", href: "/contact" },
-  ]
+  ];
 
   return (
     <nav className="bg-white border-b border-gray-200 shadow-sm">
@@ -22,16 +22,9 @@ export function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center max-w-[260px]">
-              <div
-                className="text-white px-4 py-2 rounded-t-lg font-bold text-lg"
-              >
-                <img
-                              src={logo}
-                              alt="Logo"
-                              className="w-full"
-                            />
-              </div>
-              
+            <div className="text-white px-4 py-2 rounded-t-lg font-bold text-lg">
+              <img src={logo} alt="Logo" className="w-full" />
+            </div>
           </div>
 
           {/* Desktop Navigation Menu */}
@@ -79,8 +72,18 @@ export function Navbar() {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 text-gray-600 hover:text-gray-900 transition-colors"
             >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
             </button>
           </div>
@@ -116,19 +119,19 @@ export function Navbar() {
 
               {/* Mobile Navigation Links */}
               {navigationItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-200 py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
         )}
       </div>
     </nav>
-  )
+  );
 }

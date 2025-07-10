@@ -9,7 +9,7 @@ function HomePage() {
   const [acfData, setAcfData] = useState(null);
 
   useEffect(() => {
-    fetch("http://theninedigital.com.au/iffco/wp-json/wp/v2/pages/37")
+    fetch("http://localhost:8082/ifc/wp-json/wp/v2/pages/37")
       .then((res) => res.json())
       .then((data) => {
         const acf = data.acf;
@@ -19,14 +19,17 @@ function HomePage() {
             who: {
               title: acf.who_title,
               image: acf.who_image, // ✅ using URL directly
+              link: acf.who_link,
             },
             what: {
               title: acf.what_title,
               image: acf.what_image,
+              link: acf.what_link,
             },
             where: {
               title: acf.where_title,
               image: acf.where_image,
+              link: acf.where_link,
             },
           },
           about: {
@@ -58,6 +61,11 @@ function HomePage() {
                 title: acf.product_cat_title_4,
                 image: acf.product_cat_image_4,
                 link: acf.product_cat_link_4,
+              },
+              {
+                title: acf.product_cat_title_5,
+                image: acf.product_cat_image_5,
+                link: acf.product_cat_link_5,
               },
             ],
           },

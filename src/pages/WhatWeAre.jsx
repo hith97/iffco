@@ -1,9 +1,11 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import HeroTitle from "../components/PageTitle/Hero";
 import Breadcrumb from "../components/PageTitle/Breadcum";
-import InfoTabs from "../sections/AboutUs/AboutTab";
+import VisionMision from "../sections/AboutUs/VisionMision";
+import WhatInfosection from "../sections/WhatWeAre/Infosection";
 
-function Aboutus() {
+function WhatWeAre() {
   const [acfData, setAcfData] = useState(null);
 
   useEffect(() => {
@@ -13,18 +15,6 @@ function Aboutus() {
         const acf = data.acf;
 
         const resolved = {
-          about: data.content.rendered, // main About content
-          coreObjectives: {
-            title: acf.core_objective_title,
-            text: acf.objective_text,
-            image: acf.objective_image,
-            blocks: [
-              acf.objective_block_1,
-              acf.objective_block_2,
-              acf.objective_block_3,
-              acf.objective_block_4,
-            ],
-          },
           visionMission: {
             visionText: acf.vision_text,
             visionImage: acf.vision_image,
@@ -49,11 +39,15 @@ function Aboutus() {
 
   return (
     <>
-      <HeroTitle title="ABOUT US" />
-      <Breadcrumb title="ABOUT US" />
-      <InfoTabs acfData={acfData} />
+      <HeroTitle title="WHAT WE ARE" />
+      <Breadcrumb title="What We Are" />
+      <WhatInfosection />
+      <div className="container py-[80px]">
+            <VisionMision data={acfData.visionMission} />
+      </div>
+      
     </>
   );
 }
 
-export default Aboutus;
+export default WhatWeAre;

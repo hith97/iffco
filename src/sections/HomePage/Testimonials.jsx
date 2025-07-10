@@ -7,17 +7,20 @@ import BotQuote from "../../assets/bq.png";
 export default function TestimonialSection({ data }) {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [testimonials, setTestimonials] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedTestimonial, setSelectedTestimonial] = useState(null);
 
   useEffect(() => {
-    fetch("http://theninedigital.com.au/iffco/wp-json/wp/v2/testimonials?_embed")
+    fetch("http://localhost:8082/ifc/wp-json/wp/v2/testimonials?_embed")
       .then((res) => res.json())
       .then((json) => {
         const formatted = json.map((item) => ({
           id: item.id,
           content: item.content.rendered,
+          video: item.acf?.youtube_video || "",
           image:
             item._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-            "/testimonial.jpg", // fallback image
+            "/testimonial.jpg",
         }));
         setTestimonials(formatted);
       })
@@ -34,6 +37,16 @@ export default function TestimonialSection({ data }) {
     setCurrentTestimonial(
       (prev) => (prev - 1 + testimonials.length) % testimonials.length
     );
+  };
+
+  const openModal = (testimonial) => {
+    setSelectedTestimonial(testimonial);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedTestimonial(null);
+    setIsModalOpen(false);
   };
 
   const testimonial = testimonials[currentTestimonial];
@@ -64,7 +77,11 @@ export default function TestimonialSection({ data }) {
               <img src={TopQuote} alt="top quote" />
             </div>
 
-            <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 overflow-hidden testiin">
+            {/* Testimonial Card */}
+            <div
+              className="flex flex-col lg:flex-row gap-6 lg:gap-8 overflow-hidden testiin cursor-pointer"
+              onClick={() => openModal(testimonial)}
+            >
               {/* Text */}
               <div className="w-[60%] text-left p-[80px] pr-[20px]">
                 <div
@@ -97,6 +114,44 @@ export default function TestimonialSection({ data }) {
           </button>
         </div>
       </div>
+
+      {/* Modal Popup */}
+      {isModalOpen && selectedTestimonial && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-4">
+          <div className="bg-white rounded-lg p-6 max-w-3xl w-full relative shadow-lg overflow-auto max-h-[90vh]">
+            {/* Close Button */}
+            <button
+              className="absolute top-3 right-3 text-gray-600 hover:text-black text-xl"
+              onClick={closeModal}
+            >
+              ✕
+            </button>
+
+            {/* YouTube Video */}
+            {selectedTestimonial.video && (
+              <div className="w-full aspect-video mb-6 mt-8">
+                <div
+                  className="w-full h-full"
+                  dangerouslySetInnerHTML={{
+                    __html: selectedTestimonial.video.replace(
+                      /width="\d+" height="\d+"/,
+                      'class="w-full h-full"'
+                    ),
+                  }}
+                />
+              </div>
+            )}
+
+            {/* Content */}
+            <div
+              className="text-gray-700 text-base md:text-lg"
+              dangerouslySetInnerHTML={{
+                __html: selectedTestimonial.content,
+              }}
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }

@@ -29,6 +29,10 @@ export default function ProductsSection({ data }) {
       color: "border-pink-600",
       textColor: "text-pink-600",
     },
+    {
+      color: "border-green-600",
+      textColor: "text-green-600",
+    },
   ];
 
   return (

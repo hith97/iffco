@@ -10,10 +10,17 @@ export default function ProductTabs() {
   const [activeTab, setActiveTab] = useState("all");
   const [products, setProducts] = useState([]);
 
+  // Handle initial hash-based tab activation
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (hash) {
+      setActiveTab(hash);
+    }
+  }, []);
+
   // Fetch categories on mount
   useEffect(() => {
-    // const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-    fetch(`http://theninedigital.com.au/iffco/wp-json/wp/v2/product_category`)
+    fetch(`http://localhost:8082/ifc/wp-json/wp/v2/product_category`)
       .then((res) => res.json())
       .then((data) => {
         const formatted = data.map((cat) => ({
@@ -30,11 +37,10 @@ export default function ProductTabs() {
 
   // Fetch products based on active tab
   useEffect(() => {
-   // const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
     const url =
       activeTab === "all"
-        ? `http://theninedigital.com.au/iffco/wp-json/wp/v2/product?per_page=100&_embed`
-        : `http://theninedigital.com.au/iffco/wp-json/wp/v2/product?product_category_slug=${activeTab}&per_page=100&_embed`;
+        ? `http://localhost:8082/ifc/wp-json/wp/v2/product?per_page=100&_embed`
+        : `http://localhost:8082/ifc/wp-json/wp/v2/product?product_category_slug=${activeTab}&per_page=100&_embed`;
 
     fetch(url)
       .then((res) => res.json())
@@ -50,7 +56,10 @@ export default function ProductTabs() {
             {categories.map((tab) => (
               <button
                 key={tab.slug}
-                onClick={() => setActiveTab(tab.slug)}
+                onClick={() => {
+                  setActiveTab(tab.slug);
+                  window.location.hash = tab.slug;
+                }}
                 className={`capitalize px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                   activeTab === tab.slug
                     ? "bg-red-600 text-white"
@@ -86,6 +95,7 @@ export default function ProductTabs() {
     </section>
   );
 }
+
 // Optional utility to determine category badge color
 function getCategoryColor(category) {
   const colorMap = {

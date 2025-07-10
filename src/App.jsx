@@ -14,6 +14,8 @@ import Contactus from "./pages/Contactus";
 import Presence from "./pages/Presence";
 import QualityPolicy from "./pages/QualityPolicy";
 import Services from "./pages/Services";
+import WhatWeAre from "./pages/WhatWeAre";
+import WhereWeAre from "./pages/WhereWeAre";
 
 
 function App() {
@@ -28,7 +30,9 @@ function App() {
             <Route path="/contact" element={<Contactus />} />
             <Route path="/presence" element={<Presence />} /> 
             <Route path="/quality-policy" element={<QualityPolicy />} />
-            <Route path="/services" element={<Services />} />   
+            <Route path="/services" element={<Services />} /> 
+            <Route path="/whatweare" element={<WhatWeAre />} /> 
+            <Route path="/whereweare" element={<WhereWeAre />} /> 
             <Route path="/:categorySlug/:productSlug" element={<ProductSingle />} />
           </Route>
         </Routes>

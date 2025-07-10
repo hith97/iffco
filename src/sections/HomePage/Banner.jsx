@@ -1,15 +1,22 @@
+import { Link } from "react-router-dom";
+
 export default function Banner({ data }) {
   if (!data) return null;
 
-  const sections = [data.who, data.what, data.where];
+  const sections = [
+    { ...data.who, link: data.who.link },
+    { ...data.what, link: data.what.link },
+    { ...data.where, link: data.where.link },
+  ];
 
   return (
     <section className="w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row">
           {sections.map((item, index) => (
-            <div
+            <Link
               key={index}
+              to={item.link || "#"}
               className="relative flex-1 h-64 md:h-80 lg:h-96 xl:h-[650px] overflow-hidden group"
             >
               <img
@@ -24,7 +31,7 @@ export default function Banner({ data }) {
                   </h2>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
