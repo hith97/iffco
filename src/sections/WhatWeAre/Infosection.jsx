@@ -6,7 +6,7 @@ function WhatInfosection() {
 
   useEffect(() => {
     // Fetch page content first
-    fetch("http://localhost:8082/ifc/wp-json/wp/v2/pages/166?_embed")
+    fetch("https://covana.in/iffcobackend/wp-json/wp/v2/pages/166?_embed")
       .then((res) => res.json())
       .then((page) => {
         setData(page);

@@ -6,7 +6,7 @@ function AnnualReport() {
   const [pdfUrl, setPdfUrl] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:8082/ifc/wp-json/wp/v2/pages/223")
+    fetch("https://covana.in/iffcobackend/wp-json/wp/v2/pages/223")
       .then((res) => res.json())
       .then((data) => {
         setPdfUrl(data.acf?.pdf_file || "");

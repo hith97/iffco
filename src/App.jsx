@@ -28,7 +28,7 @@ import CSR from "./pages/CSR";
 function App() {
   return (
     <>
-      <Router>
+      <Router >
         <Routes>
           <Route element={<AppLayout />}>
             <Route path="/" element={<HomePage />} />

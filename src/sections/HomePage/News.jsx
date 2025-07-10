@@ -45,15 +45,14 @@ export default function NewsSection({ data }) {
               <div className="p-4 pt-0">
                 {item.link && (
                   <Link
-  to={item.link}
-  className="text-green-600 font-bold flex items-center hover:text-green-700 transition-colors duration-200 group"
->
-  {item.category === "Videos" ? "View More" : "Read More"}
-  <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-200">
-    →
-  </span>
-</Link>
-
+                    to={item.link}
+                    className="text-green-600 font-bold flex items-center hover:text-green-700 transition-colors duration-200 group"
+                  >
+                    {item.category === "Videos" ? "View More" : "Read More"}
+                    <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-200">
+                      →
+                    </span>
+                  </Link>
                 )}
               </div>
 
