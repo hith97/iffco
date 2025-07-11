@@ -67,8 +67,8 @@ export default function KYSB() {
 
   return (
     <>
-      <HeroTitle title="KYSB" />
-      <Breadcrumb title="kysb" />
+      <HeroTitle title="KSBY" />
+      <Breadcrumb title="KSBY" />
       <ServicesIntro data={acfData.intro} />
       <InfoBox data={acfData.insured} />
       <Evidence data={acfData.evidence} />

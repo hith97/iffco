@@ -24,12 +24,14 @@ import Career from "./pages/Career";
 import AnnualReport from "./pages/AnnualReport";
 import CSR from "./pages/CSR";
 import KYSB from "./pages/KYSB";
+import Events from "./pages/Event";
+import WhoWeAre from "./pages/WhoWeAre";
 
 
 function App() {
   return (
     <>
-      <Router >
+      <Router>
         <Routes>
           <Route element={<AppLayout />}>
             <Route path="/" element={<HomePage />} />
@@ -48,7 +50,9 @@ function App() {
             <Route path="/career" element={<Career />} /> 
             <Route path="/annual-report" element={<AnnualReport />} /> 
             <Route path="/csr" element={<CSR />} /> 
-            <Route path="/kysb" element={<KYSB />} />  
+            <Route path="/ksby" element={<KYSB />} /> 
+            <Route path="/events" element={<Events />} />
+            <Route path="/whoweare" element={<WhoWeAre />} />   
             <Route path="/:categorySlug/:productSlug" element={<ProductSingle />} />
           </Route>
         </Routes>

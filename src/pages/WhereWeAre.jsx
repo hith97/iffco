@@ -6,8 +6,8 @@ import PresenseCon from "../sections/Presence/PresenseCon";
 function WhereWeAre() {
   return (
     <>
-      <HeroTitle title="PRESENCE" />
-      <Breadcrumb title="PRESENCE" />
+      <HeroTitle title="Where We Are" />
+      <Breadcrumb title="Where We Are" />
       <PresenseCon />
     </>
   );
