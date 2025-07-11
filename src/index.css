@@ -90,3 +90,38 @@ section.bannermain::after {
 .bgc-dark .descon p {
     color: #fff;
 }
+@media(max-width:767px){
+    .testiin {
+    border-radius: 20px;
+}
+.rightimg {
+    width: 100%;
+    margin: 0;
+    transform: none;
+}
+.rightimg img {
+    transform: none;
+    width: 100%;
+    margin: 0;
+}
+section.bannermain::after {
+    right: 50px;
+}
+.whattimg.rightimg {
+    margin-right: 0;
+}
+.whattimg.rightimg img {
+    margin-left: 0;
+    width: 100%;
+}
+.leftmaincon {
+    padding: 15px 0;
+}
+.tabmain button {
+    width: 100%;
+}
+.video-embed iframe {
+    width: 100%;
+    height: auto;
+}
+}

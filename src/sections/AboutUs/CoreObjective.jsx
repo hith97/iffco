@@ -7,8 +7,8 @@ export default function CoreObjective({ data }) {
     <div className="w-full">
       {/* Company Overview Section */}
         <div className="w-full bg-[#F5F6E8]">
-          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 justify-between">
-            <div className="w-[45%] lg:pr-8">
+          <div className="flex flex-col lg:flex-row items-center gap-2 sm:gap-8 lg:gap-12 justify-between">
+            <div className="w-[100%] sm:w-[45%] lg:pr-8">
               <div className="p-6">
                 <div
               className="space-y-4"
@@ -27,7 +27,7 @@ export default function CoreObjective({ data }) {
           </div>
         </div>
       {/* Core Objective Blocks (No Map) */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 md:mt-16">
+      <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 mt-12 md:mt-16">
         <h2 className="h2 mb-10">{title}</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">

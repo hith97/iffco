@@ -10,7 +10,7 @@ export default function Evidence({ data }) {
       {/* Core Objectives Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 md:mt-16">
         <div className="mb-12">
-          <h2 className="h2">Core Objectives</h2>
+          <h2 className="h2">Evidence and Period of Insurance</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">

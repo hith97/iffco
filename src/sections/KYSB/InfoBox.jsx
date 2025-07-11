@@ -8,6 +8,7 @@ export default function InfoBox({ data }) {
       <h2 className="text-2xl md:text-3xl font-bold mb-6 text-green-700">
         {data.title}
       </h2>
+      <p>Death or Permanent Total Disablement arising out of</p>
 
       <div className="flex flex-col md:flex-row flex-wrap justify-between gap-4 lg:gap-4">
         {data.items.map((item, index) => (

@@ -27,7 +27,7 @@ export default function NewsComponent() {
           return (
             <div
               key={item.id}
-              className={`flex items-start gap-4 p-4 pl-[70px] relative ${bgColor} ${bgcClass}`}
+              className={`flex items-start gap-4 p-4 pl-[20px] sm:pl-[70px] pt-[60px] sm:pt-0 relative ${bgColor} ${bgcClass}`}
             >
               {/* Number Circle */}
               <div className="number absolute left-0 top-0 flex-shrink-0 w-10 h-10 bg-green-600 text-white flex items-center justify-center font-semibold text-2xl">

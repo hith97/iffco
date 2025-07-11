@@ -8,7 +8,7 @@ const ContactCon = () => {
       <div className="mb-8">
         <h2 className="mb-6">Corporate Office</h2>
 
-        <div className="bg-[#F5F6E8] p-8 ">
+        <div className="bg-[#F5F6E8] p-2 sm:p-8 ">
           {/* Company Name */}
           <div className="text-center mb-8">
             <h3 className="mb-2 text-[28px] font-bold">
@@ -20,9 +20,9 @@ const ContactCon = () => {
           </div>
 
           {/* Address and Phone Section */}
-          <div className="flex items-start justify-center">
+          <div className="flex items-start flex-wrap justify-center gap-6 sm:gap-0">
             {/* Address Section */}
-            <div className="w-[45%] flex items-start space-x-4">
+            <div className="w-[100%] sm:w-[45%] flex items-start space-x-4">
               <div className="flex-shrink-0">
                 <img
                   src={building}
@@ -40,10 +40,10 @@ const ContactCon = () => {
             </div>
 
             {/* Vertical Divider */}
-            <div className="w-px h-20 bg-gray-300 mx-8"></div>
+            <div className="w-px h-20 bg-gray-300 mx-8 hidden sm:inline-block"></div>
 
             {/* Phone Section */}
-            <div className="flex items-center space-x-4 w-[45%] ">
+            <div className="flex items-center space-x-4 w-[100%] sm:w-[45%]">
               <img
                   src={telephone}
                   alt="Phone"
@@ -63,7 +63,7 @@ const ContactCon = () => {
           Registered Office
         </h1>
 
-        <div className="bg-[#F5F6E8] p-8 max-w-xl">
+        <div className="bg-[#F5F6E8] p-2 sm:p-8 max-w-xl">
           <div className="flex items-start space-x-4">
             <div className="flex-shrink-0">
                <img

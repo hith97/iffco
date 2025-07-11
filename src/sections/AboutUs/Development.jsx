@@ -4,8 +4,8 @@ import devimg from "../../assets/development.jpg";
 export default function Development() {
   return (
     <>
-      <div className="flex my-[80px] flex-col lg:flex-row gap-6 lg:gap-8 overflow-hidden testiin">
-        <div className="w-[60%] text-left p-[80px] pr-[20px]">
+      <div className="flex my-[80px] flex-col lg:flex-row gap-2 sm:gap-6 lg:gap-8 overflow-hidden testiin">
+        <div className="w-[100%] sm:w-[60%] text-left p-[20px] sm:p-[80px] pr-[20px]">
           <p className="text-black-700 text-base md:text-lg leading-relaxed max-w-[480px]">
             Our team works across diverse agroclimatic zones, ensuring the
             effectiveness of our products for crop-specific solutions like
@@ -13,7 +13,7 @@ export default function Development() {
           </p>
         </div>
 
-        <div className="w-[40%] overflow-hidden shadow-lg rightimg">
+        <div className="w-[100%] sm:w-[40%] overflow-hidden shadow-lg rightimg">
           <img
             src={devimg}
             alt="vision"

@@ -3,16 +3,16 @@
 import React, { useEffect, useState } from "react";
 import HeroTitle from "../components/PageTitle/Hero";
 import Breadcrumb from "../components/PageTitle/Breadcum";
-import ServicesIntro from "../sections/Services/ServicesIntro";
-import InfoBox from "../sections/Services/InfoBox";
-import Evidence from "../sections/Services/Evidence";
-import HowtoClaim from "../sections/Services/HowtoClaim";
+import ServicesIntro from "../sections/KYSB/ServicesIntro";
+import InfoBox from "../sections/KYSB/InfoBox";
+import Evidence from "../sections/KYSB/Evidence";
+import HowtoClaim from "../sections/KYSB/HowtoClaim";
 
-export default function Services() {
+export default function KYSB() {
   const [acfData, setAcfData] = useState(null);
 
   useEffect(() => {
-    fetch("https://covana.in/iffcobackend/wp-json/wp/v2/pages/233")
+    fetch("https://covana.in/iffcobackend/wp-json/wp/v2/pages/265")
       .then((res) => res.json())
       .then((page) => {
         const acf = page.acf;
@@ -67,8 +67,8 @@ export default function Services() {
 
   return (
     <>
-      <HeroTitle title="SERVICES" />
-      <Breadcrumb title="Services" />
+      <HeroTitle title="KYSB" />
+      <Breadcrumb title="kysb" />
       <ServicesIntro data={acfData.intro} />
       <InfoBox data={acfData.insured} />
       <Evidence data={acfData.evidence} />

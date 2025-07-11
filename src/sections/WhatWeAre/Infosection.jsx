@@ -28,7 +28,7 @@ function WhatInfosection() {
       <div className="container py-[60px]">
         <h2 className="mb-[0px]">Overview</h2>
       </div>
-      <div className="infomain bg-[#F5F6E8] flex flex-col lg:flex-row justify-between w-full overflow-hidden gap-[80px] px-6 lg:px-0">
+      <div className="infomain bg-[#F5F6E8] flex flex-col lg:flex-row justify-between w-full overflow-hidden gap-[10px] sm:gap-[80px] px-6 lg:px-0">
         <div
           className="leftmaincon py-[50px] max-w-[650px] ml-auto mr w-full lg:w-1/2"
           dangerouslySetInnerHTML={{ __html: data.content.rendered }}

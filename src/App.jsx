@@ -23,6 +23,7 @@ import Privacy from "./pages/Privacy";
 import Career from "./pages/Career";
 import AnnualReport from "./pages/AnnualReport";
 import CSR from "./pages/CSR";
+import KYSB from "./pages/KYSB";
 
 
 function App() {
@@ -46,7 +47,8 @@ function App() {
             <Route path="/privacy-policy" element={<Privacy />} /> 
             <Route path="/career" element={<Career />} /> 
             <Route path="/annual-report" element={<AnnualReport />} /> 
-            <Route path="/csr" element={<CSR />} />  
+            <Route path="/csr" element={<CSR />} /> 
+            <Route path="/kysb" element={<KYSB />} />  
             <Route path="/:categorySlug/:productSlug" element={<ProductSingle />} />
           </Route>
         </Routes>

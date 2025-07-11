@@ -65,7 +65,7 @@ export default function TestimonialSection({ data }) {
 
         <div className="flex items-center justify-center relative">
           <button
-            className="absolute left-0 z-10 w-10 h-10 md:w-12 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-green-600 hover:bg-green-50 transition-colors duration-200 -ml-6"
+            className="hidden sm:inline-block absolute left-0 z-10 w-10 h-10 md:w-12 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-green-600 hover:bg-green-50 transition-colors duration-200 -ml-6"
             onClick={prevTestimonial}
           >
             <span className="text-xl md:text-2xl">‹</span>
@@ -73,17 +73,17 @@ export default function TestimonialSection({ data }) {
 
           <div className="relative max-w-4xl mx-auto">
             {/* Top Quote */}
-            <div className="absolute -top-24 -left-24 z-0 text-green-600 text-6xl md:text-7xl lg:text-8xl font-serif leading-none">
+            <div className="hidden sm:inline-block  absolute -top-24 -left-24 z-0 text-green-600 text-6xl md:text-7xl lg:text-8xl font-serif leading-none">
               <img src={TopQuote} alt="top quote" />
             </div>
 
             {/* Testimonial Card */}
             <div
-              className="flex flex-col lg:flex-row gap-6 lg:gap-8 overflow-hidden testiin cursor-pointer"
+              className="flex flex-col lg:flex-row gap-2 lg:gap-8 overflow-hidden testiin cursor-pointer"
               onClick={() => openModal(testimonial)}
             >
               {/* Text */}
-              <div className="w-[60%] text-left p-[80px] pr-[20px]">
+              <div className="w-[100%] sm:w-[60%] text-left p-[15px] pb-[0px] sm:pr-[20px] sm:p-[80px] ">
                 <div
                   className="text-gray-700 text-base md:text-lg leading-relaxed mb-6"
                   dangerouslySetInnerHTML={{ __html: testimonial.content }}
@@ -101,13 +101,13 @@ export default function TestimonialSection({ data }) {
             </div>
 
             {/* Bottom Quote */}
-            <div className="absolute -bottom-24 -right-24 text-green-600 text-6xl md:text-7xl lg:text-8xl font-serif leading-none">
+            <div className="hidden sm:inline-block absolute -bottom-24 -right-24 text-green-600 text-6xl md:text-7xl lg:text-8xl font-serif leading-none">
               <img src={BotQuote} alt="bottom quote" />
             </div>
           </div>
 
           <button
-            className="absolute right-0 z-10 w-10 h-10 md:w-12 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-green-600 hover:bg-green-50 transition-colors duration-200 -mr-6"
+            className="hidden sm:inline-block absolute right-0 z-10 w-10 h-10 md:w-12 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-green-600 hover:bg-green-50 transition-colors duration-200 -mr-6"
             onClick={nextTestimonial}
           >
             <span className="text-xl md:text-2xl">›</span>

@@ -6,8 +6,8 @@ export default function VisionMision({ data }) {
       {/* Vision Section */}
       <div className="visiontop mb-8">
         <h2>Vision</h2>
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 overflow-hidden testiin">
-          <div className="w-[60%] text-left p-[80px] pr-[20px]">
+        <div className="flex flex-col lg:flex-row gap-2 sm:gap-6 lg:gap-8 overflow-hidden testiin">
+          <div className="w-[100%] sm:w-[60%] text-left p-[20px] pb-[0px] sm:p-[80px] pr-[20px]">
             <p className="text-gray-700 text-base md:text-lg leading-relaxed">
               {data.visionText}
             </p>
