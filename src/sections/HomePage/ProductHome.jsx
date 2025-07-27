@@ -1,6 +1,7 @@
 "use client";
 
 import productbg from "../../assets/productbg.jpg";
+import { Link } from "react-router-dom";
 
 export default function ProductsSection({ data }) {
   if (!data) return null;
@@ -56,8 +57,8 @@ export default function ProductsSection({ data }) {
             const { color, textColor } = colorClasses[index] || colorClasses[0];
 
             return (
-              <a
-                href={product.link || "#"}
+              <Link
+                to={product.link || "#"}
                 key={index}
                 className="flex flex-col items-center group cursor-pointer"
               >
@@ -75,7 +76,7 @@ export default function ProductsSection({ data }) {
                 >
                   {product.title}
                 </h3>
-              </a>
+              </Link>
             );
           })}
         </div>

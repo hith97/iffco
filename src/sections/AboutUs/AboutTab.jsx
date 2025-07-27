@@ -10,7 +10,7 @@ import Development from "./Development";
 
 export default function InfoTabs({ acfData }) {
   const tabs = [
-    { id: "about", label: "About IIFCO-MC" },
+    { id: "about", label: "About IFFCO-MC" },
     { id: "objectives", label: "Core Objectives" },
     { id: "vision", label: "Vision & Mission" },
     { id: "infrastructure", label: "Infrastructure & Resources" },

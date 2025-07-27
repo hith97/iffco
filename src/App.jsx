@@ -31,7 +31,7 @@ import WhoWeAre from "./pages/WhoWeAre";
 function App() {
   return (
     <>
-      <Router>
+      <Router basename="/iffcoweb">
         <Routes>
           <Route element={<AppLayout />}>
             <Route path="/" element={<HomePage />} />
