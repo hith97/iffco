@@ -6,7 +6,7 @@ function CSR() {
   const [pdfUrl, setPdfUrl] = useState("");
   
     useEffect(() => {
-      fetch("https://covana.in/iffcobackend/wp-json/wp/v2/pages/227")
+      fetch("http://localhost:8082/ifc/wp-json/wp/v2/pages/227")
         .then((res) => res.json())
         .then((data) => {
           setPdfUrl(data.acf?.pdf_file || "");

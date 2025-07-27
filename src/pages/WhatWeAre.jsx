@@ -9,7 +9,7 @@ function WhatWeAre() {
   const [acfData, setAcfData] = useState(null);
 
   useEffect(() => {
-    fetch("https://covana.in/iffcobackend/wp-json/wp/v2/pages/131")
+    fetch("http://localhost:8082/ifc/wp-json/wp/v2/pages/131")
       .then((res) => res.json())
       .then((data) => {
         const acf = data.acf;

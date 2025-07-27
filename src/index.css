@@ -45,7 +45,34 @@ h2, .h2{
     min-width: 160px;
     position: relative;
 }
-
+.rightimg.lftimg {
+    transform: skewX(-15deg);
+    margin-right: 0;
+    margin-left: -70px;
+    -webkit-transform: skewX(-15deg);
+    -moz-transform: skewX(-15deg);
+    -ms-transform: skewX(-15deg);
+    -o-transform: skewX(-15deg);
+}
+.swiper-button-prev:after, .swiper-button-next:after {
+    font-size: 30px !important;
+    color:#ED1C24;
+}
+.latestcon {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.rightimg.lftimg img {
+    margin-left: 70px;
+    transform: skewX(15deg);
+    -webkit-transform: skewX(15deg);
+    -moz-transform: skewX(15deg);
+    -ms-transform: skewX(15deg);
+    -o-transform: skewX(15deg);
+}
 .catnews::after {
     content: "";
     position: absolute;

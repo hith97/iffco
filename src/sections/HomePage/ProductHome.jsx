@@ -19,19 +19,19 @@ export default function ProductsSection({ data }) {
       textColor: "text-green-600",
     },
     {
-      color: "border-orange-500",
+      color: "border-[#FFBB00]",
       textColor: "text-orange-500",
     },
     {
-      color: "border-blue-600",
+      color: "border-[#00488C]",
       textColor: "text-blue-600",
     },
     {
-      color: "border-pink-600",
+      color: "border-[#B9006F]",
       textColor: "text-pink-600",
     },
     {
-      color: "border-green-600",
+      color: "border-[#861F00]",
       textColor: "text-green-600",
     },
   ];
@@ -52,7 +52,7 @@ export default function ProductsSection({ data }) {
         </h2>
         <p className="mb-12 opacity-90 text-white">{subtitle}</p>
 
-        <div className="flex flex-wrap justify-center gap-8 md:gap-12 lg:gap-16">
+        <div className="flex flex-wrap justify-center gap-8 md:gap-4 lg:gap-8">
           {categories.map((product, index) => {
             const { color, textColor } = colorClasses[index] || colorClasses[0];
 
@@ -63,16 +63,16 @@ export default function ProductsSection({ data }) {
                 className="flex flex-col items-center group cursor-pointer"
               >
                 <div
-                  className={`w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full bg-white ${color} border-4 flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 group-hover:shadow-2xl`}
+                  className={`w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full bg-white ${color} border-[7px] flex items-center justify-center mb-4 transition-all duration-300`}
                 >
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="object-contain w-3/4 h-3/4"
+                    className="object-contain w-2/4 h-2/4"
                   />
                 </div>
                 <h3
-                  className={`font-bold text-lg md:text-xl lg:text-2xl group-hover:text-yellow-300 transition-colors duration-300 ${textColor}`}
+                  className={`font-bold text-lg md:text-xl lg:text-2xl duration-300 text-white`}
                 >
                   {product.title}
                 </h3>

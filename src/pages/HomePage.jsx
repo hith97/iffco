@@ -4,12 +4,14 @@ import AboutSection from "../sections/HomePage/AboutSection";
 import ProductsSection from "../sections/HomePage/ProductHome";
 import TestimonialSection from "../sections/HomePage/Testimonials";
 import NewsSection from "../sections/HomePage/News";
+import StatsCounter from "../sections/HomePage/Counter";
+import LatestFromIffco from "../sections/HomePage/latestFromIffco";
 
 function HomePage() {
   const [acfData, setAcfData] = useState(null);
 
   useEffect(() => {
-    fetch("https://covana.in/iffcobackend/wp-json/wp/v2/pages/37")
+    fetch("http://localhost:8082/ifc/wp-json/wp/v2/pages/37")
       .then((res) => res.json())
       .then((data) => {
         const acf = data.acf;
@@ -115,9 +117,10 @@ function HomePage() {
     <>
       <Banner data={acfData.banner} />
       <AboutSection data={acfData.about} />
+      <StatsCounter />
       <ProductsSection data={acfData.products} />
       <TestimonialSection data={acfData.testimonials} />
-      <NewsSection data={acfData.news} />
+      <LatestFromIffco data={acfData.news} />      
     </>
   );
 }
