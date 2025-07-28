@@ -178,6 +178,32 @@ section.bannermain::after {
     left: 48%;
     z-index: -1;
 }
+.testiin.randdtop .lftcon {
+    padding-top: 10px;
+    padding-bottom: 0px;
+}
+
+.testiin.randdtop {
+    box-shadow: none;
+}
+.bgshape {
+    position: relative;
+}
+
+.bgshape::after {
+    width: 100%;
+    height: 75%;
+    position: absolute;
+    content: "";
+    background: #F5F6E8;
+    z-index: -1;
+    bottom: 0;
+    border-radius: 80px;
+}
+.compositable{
+    background: linear-gradient(360deg, #FFFFFF 0%, #F5F6E8 100%);
+
+}
 @media(max-width:767px){
     .testiin {
     border-radius: 20px;
