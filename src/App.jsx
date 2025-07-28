@@ -26,6 +26,7 @@ import CSR from "./pages/CSR";
 import KYSB from "./pages/KYSB";
 import Events from "./pages/Event";
 import WhoWeAre from "./pages/WhoWeAre";
+import LatestFromIffcoMCPage from "./pages/LatestFromIffcoMC";
 
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
             <Route path="/events" element={<Events />} />
             <Route path="/whoweare" element={<WhoWeAre />} />   
             <Route path="/:categorySlug/:productSlug" element={<ProductSingle />} />
+            <Route path="/latestfromiffcomc" element={<LatestFromIffcoMCPage />} />   
           </Route>
         </Routes>
       </Router>

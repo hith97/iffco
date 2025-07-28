@@ -1,23 +1,32 @@
 import { useState } from "react";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
+import { ChevronDown } from "lucide-react";
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
+
+  const productSubItems = [
+    { name: "Herbicides", href: "/products#herbicide" },
+    { name: "Insecticides", href: "/products#insecticides" },
+    { name: "Fungicides", href: "/products#fungicides" },
+    { name: "PGR", href: "/products#pgr" },
+    { name: "Biologicals", href: "/products#new-biologicals" },
+  ];
 
   const navigationItems = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/aboutus" },
-    { name: "Presence", href: "/presence" },
-    { name: "Services", href: "/services" },
-    { name: "Annual Report", href: "/annual-report" },
-    { name: "CSR", href: "/csr" },
-    { name: "Contact Us", href: "/contact" },
+    { name: "Products", href: "/products" },
+    { name: "KSBY", href: "/ksby" },
+    { name: "IFFCO-MC Kisaan", href: "/" },
+    { name: "Contact Us", href: "/whereweare#contact" },
   ];
 
   return (
-    <nav className="bg-white">
+    <nav className="bg-white relative z-50">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between py-2">
           {/* Logo */}
@@ -29,18 +38,42 @@ export function Navbar() {
 
           {/* Desktop Navigation Menu */}
           <div className="hidden lg:flex items-center space-x-8">
-            {navigationItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className="text-gray-700 hover:text-green-600 font-small transition-colors duration-200"
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navigationItems.map((item) => {
+              if (item.name === "Products") {
+                return (
+                  <div key="Products" className="relative group">
+                    <button className="text-gray-700 hover:text-green-600 font-small transition-colors duration-200 flex">
+                      Products <ChevronDown className="mt-1 text-red" />
+                    </button>
+                    {/* Dropdown menu */}
+                    <div className="absolute top-full left-0 bg-white shadow-lg rounded-md w-48 z-50 opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-opacity duration-200 pointer-events-auto">
+                      {productSubItems.map((subItem) => (
+                        <Link
+                          key={subItem.name}
+                          to={subItem.href}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-600"
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              } else {
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className="text-gray-700 hover:text-green-600 font-small transition-colors duration-200"
+                  >
+                    {item.name}
+                  </Link>
+                );
+              }
+            })}
           </div>
 
-          {/* Search Bar */}
+          {/* Desktop Search Bar */}
           <div className="hidden max-w-3xl md:flex items-center">
             <div className="relative">
               <svg
@@ -118,16 +151,47 @@ export function Navbar() {
               </div>
 
               {/* Mobile Navigation Links */}
-              {navigationItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-200 py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navigationItems.map((item) => {
+                if (item.name === "Products") {
+                  return (
+                    <div key="Products" className="space-y-1">
+                      <button
+                        onClick={() =>
+                          setIsProductDropdownOpen(!isProductDropdownOpen)
+                        }
+                        className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-200 py-2"
+                      >
+                        Products
+                      </button>
+                      {isProductDropdownOpen && (
+                        <div className="pl-4">
+                          {productSubItems.map((sub) => (
+                            <Link
+                              key={sub.name}
+                              to={sub.href}
+                              className="block text-sm text-gray-600 hover:text-green-600 py-1"
+                              onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                              {sub.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-200 py-2"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         )}

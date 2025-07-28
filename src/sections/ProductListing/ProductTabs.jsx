@@ -50,6 +50,8 @@ export default function ProductTabs() {
   return (
     <section className="py-8 md:py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p className="text-center">Our wide portfolio of insecticides, fungicides, herbicides, plant growth promoters and biologicals are developed through rigorous research and produced in modern manufacturing facilities that follow the highest quality standards. Every product is priced transparently and sold strictly at the printed Maximum Retail Price (MRP), ensuring fair value and eliminating middle-layer inflation.
+</p>
         {/* Tabs */}
         <div className="flex flex-wrap mb-8 justify-center">
           <div className="tabmain">

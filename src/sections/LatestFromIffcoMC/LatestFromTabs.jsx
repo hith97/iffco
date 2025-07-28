@@ -6,7 +6,6 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import newsimg from "../../assets/news.png"
-import { Link } from "react-router-dom";
 const tabs = [
   { id: "news", label: "News & Media" },
   { id: "awards", label: "Awards & Recognition" },
@@ -54,7 +53,7 @@ const staticData = {
   ],
 };
 
-export default function LatestFromIffco({ data }) {
+export default function LatestFromTabs({ data }) {
   const [activeTab, setActiveTab] = useState("news");
   const [newsItems, setNewsItems] = useState([]);
 
@@ -116,21 +115,12 @@ export default function LatestFromIffco({ data }) {
         {/* Swiper Slider */}
         {currentItems.length > 0 ? (
           <div className="relative">
-            <Swiper
-              modules={[Navigation]}
-              navigation={{
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-              }}
-              loop
-              className="pb-12"
-            >
+            
               {currentItems.map((item) => (
-                <SwiperSlide key={item.id}>
-                  <div className="relative max-w-4xl mx-auto py-4">
+                  <div className="relative container mx-auto py-4">
                     <div className="bg-white shadow-xl overflow-hidden flex justify-between flex-col md:flex-row testiin">
                       {/* Image */}
-                      <div className="w-[40%] overflow-hidden shadow-lg rightimg lftimg">
+                      <div className="w-[100%] sm:w-[40%] overflow-hidden shadow-lg rightimg lftimg">
                         <img
                           src={item.image}
                           alt={item.title}
@@ -139,7 +129,7 @@ export default function LatestFromIffco({ data }) {
                       </div>
 
                       {/* Content */}
-                      <div className="p-6 md:p-10 md:w-[55%] text-left">
+                      <div className="p-6 md:p-10 w-full md:w-[60%] text-left">
                         {activeTab === "news" && (
                           <p className="text-gray-500 text-sm mb-2">
                             {item.date}
@@ -162,20 +152,9 @@ export default function LatestFromIffco({ data }) {
                       </div>
                     </div>
                   </div>
-                </SwiperSlide>
               ))}
 
-              {/* Swiper Buttons */}
-              <button className="swiper-button-prev absolute -left-6 top-1/2 -translate-y-1/2 flex items-center justify-center text-red-600 z-10 "></button>
-              <button className="swiper-button-next absolute -right-6 top-1/2 -translate-y-1/2 flex items-center justify-center text-red-600 z-10"></button>
-            </Swiper>
-
-            {/* View More */}
-            <div className="flex justify-center mt-4">
-              <Link to="/latestfromiffcomc" className="bg-red-600 text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-red-700 transition">
-                View More
-              </Link>
-            </div>
+              
           </div>
         ) : (
           <p className="text-center text-gray-500 mt-6">
