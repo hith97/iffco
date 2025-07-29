@@ -14,7 +14,7 @@ export default function WhoBoardOfDirector() {
 
   useEffect(() => {
     fetch(
-      "http://localhost:8082/ifc/wp-json/wp/v2/team?_embed&order=asc&orderby=date"
+      "https://covana.in/iffcobackend/wp-json/wp/v2/team?_embed&order=asc&orderby=date"
     )
       .then((res) => res.json())
       .then((data) => {

@@ -20,7 +20,7 @@ export default function ProductTabs() {
 
   // Fetch categories on mount
   useEffect(() => {
-    fetch(`http://localhost:8082/ifc/wp-json/wp/v2/product_category`)
+    fetch(`https://covana.in/iffcobackend/wp-json/wp/v2/product_category`)
       .then((res) => res.json())
       .then((data) => {
         const formatted = data.map((cat) => ({
@@ -39,8 +39,8 @@ export default function ProductTabs() {
   useEffect(() => {
     const url =
       activeTab === "all"
-        ? `http://localhost:8082/ifc/wp-json/wp/v2/product?per_page=100&_embed`
-        : `http://localhost:8082/ifc/wp-json/wp/v2/product?product_category_slug=${activeTab}&per_page=100&_embed`;
+        ? `https://covana.in/iffcobackend/wp-json/wp/v2/product?per_page=100&_embed`
+        : `https://covana.in/iffcobackend/wp-json/wp/v2/product?product_category_slug=${activeTab}&per_page=100&_embed`;
 
     fetch(url)
       .then((res) => res.json())

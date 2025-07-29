@@ -32,7 +32,7 @@ import LatestFromIffcoMCPage from "./pages/LatestFromIffcoMC";
 function App() {
   return (
     <>
-      <Router>
+      <Router basename="iffcoweb">
         <Routes>
           <Route element={<AppLayout />}>
             <Route path="/" element={<HomePage />} />

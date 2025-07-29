@@ -61,7 +61,7 @@ export default function LatestFromIffco({ data }) {
   useEffect(() => {
     if (activeTab !== "news") return;
 
-    fetch("http://localhost:8082/ifc/wp-json/wp/v2/news?_embed")
+    fetch("https://covana.in/iffcobackend/wp-json/wp/v2/news?_embed")
       .then((res) => res.json())
       .then((json) => {
         console.log("News API response:", json); // <--- optional but helpful

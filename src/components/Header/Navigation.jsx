@@ -21,7 +21,7 @@ export function Navbar() {
     { name: "About Us", href: "/aboutus" },
     { name: "Products", href: "/products" },
     { name: "KSBY", href: "/ksby" },
-    { name: "IFFCO-MC Kisaan", href: "/" },
+    { name: "Latest From IFFCO-MC", href: "/latestfromiffcomc" },
     { name: "Contact Us", href: "/whereweare#contact" },
   ];
 
