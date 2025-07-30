@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
-import { ChevronDown } from "lucide-react";
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
+  const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
+
+  const productDropdownRef = useRef(null);
+  const aboutDropdownRef = useRef(null);
 
   const productSubItems = [
     { name: "Herbicides", href: "/products#herbicide" },
@@ -14,6 +17,13 @@ export function Navbar() {
     { name: "Fungicides", href: "/products#fungicides" },
     { name: "PGR", href: "/products#pgr" },
     { name: "Biologicals", href: "/products#new-biologicals" },
+  ];
+
+  const aboutSubItems = [
+    { name: "Overview", href: "/whoweare#overview" },
+    { name: "Vision & Mission", href: "/whoweare#vision" },
+    { name: "Core Objectives", href: "/whoweare#objectives" },
+    { name: "Board of Directors", href: "/whoweare#board-of-director" },
   ];
 
   const navigationItems = [
@@ -24,6 +34,27 @@ export function Navbar() {
     { name: "Latest From IFFCO-MC", href: "/latestfromiffcomc" },
     { name: "Contact Us", href: "/whereweare#contact" },
   ];
+
+  // Close dropdowns on outside click
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        productDropdownRef.current &&
+        !productDropdownRef.current.contains(event.target)
+      ) {
+        setIsProductDropdownOpen(false);
+      }
+      if (
+        aboutDropdownRef.current &&
+        !aboutDropdownRef.current.contains(event.target)
+      ) {
+        setIsAboutDropdownOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <nav className="bg-white relative z-50">
@@ -41,17 +72,67 @@ export function Navbar() {
             {navigationItems.map((item) => {
               if (item.name === "Products") {
                 return (
-                  <div key="Products" className="relative group">
-                    <button className="text-gray-700 hover:text-green-600 font-small transition-colors duration-200 flex">
-                      Products <ChevronDown className="mt-1 text-red" />
+                  <div
+                    key="Products"
+                    className="relative"
+                    ref={productDropdownRef}
+                  >
+                    <button
+                      onClick={() =>
+                        setIsProductDropdownOpen(!isProductDropdownOpen)
+                      }
+                      className="text-gray-700 hover:text-green-600 font-small transition-colors duration-200 flex items-center"
+                    >
+                      Products
+                      <i className="fa-solid fa-sort-down mt-[0px] ml-2 text-[#ED1C24]"></i>
                     </button>
-                    {/* Dropdown menu */}
-                    <div className="absolute top-full left-0 bg-white shadow-lg rounded-md w-48 z-50 opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-opacity duration-200 pointer-events-auto">
+                    <div
+                      className={`absolute top-full left-0 bg-white shadow-lg mt-2 rounded-md w-48 z-50 transform transition-all duration-200 origin-top scale-95 opacity-0 ${
+                        isProductDropdownOpen
+                          ? "opacity-100 scale-100"
+                          : "pointer-events-none"
+                      }`}
+                    >
                       {productSubItems.map((subItem) => (
                         <Link
                           key={subItem.name}
                           to={subItem.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-600"
+                          className="block px-4 py-2 text-md text-gray-700 hover:bg-green-100 hover:text-green-600"
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              } else if (item.name === "About Us") {
+                return (
+                  <div
+                    key="About Us"
+                    className="relative"
+                    ref={aboutDropdownRef}
+                  >
+                    <button
+                      onClick={() =>
+                        setIsAboutDropdownOpen(!isAboutDropdownOpen)
+                      }
+                      className="text-gray-700 hover:text-green-600 font-small transition-colors duration-200 flex items-center"
+                    >
+                      About Us
+                      <i className="fa-solid fa-sort-down mt-[0px] ml-2 text-[#ED1C24]"></i>
+                    </button>
+                    <div
+                      className={`absolute top-full left-0 bg-white shadow-lg rounded-md mt-2 w-48 z-50 transform transition-all duration-200 origin-top scale-95 opacity-0 ${
+                        isAboutDropdownOpen
+                          ? "opacity-100 scale-100"
+                          : "pointer-events-none"
+                      }`}
+                    >
+                      {aboutSubItems.map((subItem) => (
+                        <Link
+                          key={subItem.name}
+                          to={subItem.href}
+                          className="block px-4 py-2 text-md text-gray-700 hover:bg-green-100 hover:text-green-600"
                         >
                           {subItem.name}
                         </Link>
@@ -166,6 +247,33 @@ export function Navbar() {
                       {isProductDropdownOpen && (
                         <div className="pl-4">
                           {productSubItems.map((sub) => (
+                            <Link
+                              key={sub.name}
+                              to={sub.href}
+                              className="block text-sm text-gray-600 hover:text-green-600 py-1"
+                              onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                              {sub.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                } else if (item.name === "About Us") {
+                  return (
+                    <div key="About Us" className="space-y-1">
+                      <button
+                        onClick={() =>
+                          setIsAboutDropdownOpen(!isAboutDropdownOpen)
+                        }
+                        className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-200 py-2"
+                      >
+                        About Us
+                      </button>
+                      {isAboutDropdownOpen && (
+                        <div className="pl-4">
+                          {aboutSubItems.map((sub) => (
                             <Link
                               key={sub.name}
                               to={sub.href}

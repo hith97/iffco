@@ -19,17 +19,17 @@ export default function AboutSection({ data }) {
             </h2>
 
             <div
-              className="text-gray-800 leading-relaxed text-justify whitespace-pre-line"
+              className="text-gray-800 leading-relaxed text-justify whitespace-pre-line para"
               dangerouslySetInnerHTML={{ __html: data.short }}
             />
 
             <Link
               href="#" // TODO: Replace with your actual link
-              className="text-green-600 font-bold flex items-center hover:text-green-700 transition-colors duration-200 group"
+              className="text-[#ED1C24] font-bold flex items-center hover:text-green-700 transition-colors duration-200 group"
             >
-              Read More
+              Learn More
               <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-200">
-                →
+                <i className="fa-solid fa-chevron-right"></i>
               </span>
             </Link>
           </div>

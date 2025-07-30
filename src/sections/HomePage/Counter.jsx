@@ -2,105 +2,86 @@
 
 import { useState, useEffect, useRef } from "react"
 import staticon from "../../assets/staticn.png"
+import staticon2 from "../../assets/staticn2.png"
+import staticon3 from "../../assets/staticn3.png"
+import staticon4 from "../../assets/staticn4.png"
+import staticon5 from "../../assets/staticn5.png"
+import staticon6 from "../../assets/staticn6.png"
+import staticon7 from "../../assets/staticn7.png"
+import staticon8 from "../../assets/staticn8.png"
+import staticon9 from "../../assets/staticn9.png"
+import staticon10 from "../../assets/staticn10.png"
 
 const statsData = [
   {
-    icon: "🏆",
+    icon: staticon,
     count: 10,
     suffix: "+",
     label: "Years of Excellence",
     color: "green",
   },
   {
-    icon: "📍",
+    icon: staticon2,
     count: 18,
     suffix: "",
     label: "States Covered",
     color: "red",
   },
   {
-    icon: "🏭",
+    icon: staticon3,
     count: 4,
     suffix: "",
-    label: "Manufacturing Units",
+    label: "Manufacturing Facilities (Tollers)",
     color: "green",
   },
   {
-    icon: "🏢",
-    count: 0,
-    suffix: "000",
-    label: "Warehouses Across India",
+    icon: staticon4,
+    count: 3,
+    suffix: "Crore +",
+    label: "KSBY Claims Settled",
     color: "red",
   },
   {
-    icon: "🚚",
+    icon: staticon5,
     count: 10,
     suffix: "+",
     label: "Unique Distribution Network",
     color: "red",
   },
   {
-    icon: "👥",
+    icon: staticon6,
     count: 500,
     suffix: "+",
     label: "Dedicated Workforce",
     color: "red",
   },
   {
-    icon: "🛒",
+    icon: staticon7,
     count: 85,
     suffix: "+",
     label: "Product Basket",
     color: "red",
   },
   {
-    icon: "🤝",
-    count: 1,
-    suffix: "",
-    label: "Farmer Touchpoint",
-    color: "green",
-  },
-  {
-    icon: "🎧",
+    icon: staticon8,
     count: 300,
     suffix: "+",
     label: "Farmer Service Centers",
-    color: "red",
+    color: "green",
   },
   {
-    icon: "🌱",
-    count: 0,
-    suffix: "000",
-    label: "Farmer Societies",
-    color: "red",
-  },
-  {
-    icon: "🏪",
-    count: 0,
-    suffix: "000",
+    icon: staticon9,
+    count: 350,
+    suffix: "+",
     label: "IFFCO Bazaar Outlets",
     color: "red",
   },
   {
-    icon: "💰",
-    count: 0,
-    suffix: "000",
-    label: "IFFDC",
+    icon: staticon10,
+    count: 3000,
+    suffix: "+",
+    label: "Primary Agriculture Co-operative Societies",
     color: "red",
-  },
-  {
-    icon: "📊",
-    count: 0,
-    suffix: "000",
-    label: "CCDU",
-    color: "red",
-  },
-  {
-    icon: "✅",
-    count: 0,
-    suffix: "000",
-    label: "KSBY Insurance Claim Delivered",
-    color: "green",
   },
 ]
 
@@ -161,8 +142,8 @@ function StatCard({ stat, shouldAnimate }) {
 
   return (
     <div className="p-6 text-center transition-shadow duration-300 w-full sm:w-1/2 md:w-1/3 lg:w-1/5">
-      <div className="text-4xl mb-3 w-[110px] h-[110px] bg-[#F5F6E8] rounded-full m-auto p-4">
-        <img src={staticon} alt="icon" className="w-full h-full object-contain" />
+      <div className="text-4xl mb-3 w-[110px] h-[110px] bg-[#F5F6E8] rounded-full m-auto p-4 flex justify-center items-center">
+        <img src={stat.icon} alt="icon" className="w-[60px] h-[60px] object-contain" />
       </div>
       <div className={`text-[40px] font-bold mb-2 text-red-500`}>
         {animatedCount}

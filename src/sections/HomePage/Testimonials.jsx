@@ -3,13 +3,14 @@
 import { useState, useEffect } from "react";
 import TopQuote from "../../assets/tq.png";
 import BotQuote from "../../assets/bq.png";
+import { Link } from "react-router-dom";
 
 export default function TestimonialSection({ data }) {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
-    fetch("https://covana.in/iffcobackend/wp-json/wp/v2/testimonials?_embed")
+    fetch("http://localhost:8082/ifc/wp-json/wp/v2/testimonials?_embed")
       .then((res) => res.json())
       .then((json) => {
         const formatted = json.map((item) => ({
@@ -42,13 +43,13 @@ export default function TestimonialSection({ data }) {
   if (!testimonial) return null;
 
   return (
-    <section className="w-full bg-yellow-50 py-12 md:py-16 lg:py-20">
+    <section className="w-full py-12 md:py-16 lg:py-24 sm:mb-[40px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-green-600 text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="text-green-600 text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-[120px]">
             {data?.title}
           </h2>
-          <p className="text-gray-600 text-lg">{data?.subtitle}</p>
+          {/* <p className="text-gray-600 text-lg">{data?.subtitle}</p> */}
         </div>
 
         <div className="flex items-center justify-center relative">
@@ -73,12 +74,15 @@ export default function TestimonialSection({ data }) {
                   className="text-gray-700 text-base md:text-lg leading-relaxed mb-6"
                   dangerouslySetInnerHTML={{ __html: testimonial.content }}
                 />
-                <button className="text-green-600 font-bold flex items-center hover:text-green-700 transition-colors duration-200 group">
+                <Link
+                  href="#" // TODO: Replace with your actual link
+                  className="text-[#ED1C24] font-bold flex items-center hover:text-green-700 transition-colors duration-200 group"
+                >
                   Learn More
                   <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-200">
-                    →
+                    <i className="fa-solid fa-chevron-right"></i>
                   </span>
-                </button>
+                </Link>
               </div>
 
               {/* Image */}
