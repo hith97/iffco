@@ -37,13 +37,13 @@ const statsData = [
   {
     icon: staticon4,
     count: 3,
-    suffix: "Crore +",
+    suffix: " Cr +",
     label: "KSBY Claims Settled",
     color: "red",
   },
   {
     icon: staticon5,
-    count: 10,
+    count: 12000,
     suffix: "+",
     label: "Unique Distribution Network",
     color: "red",
@@ -64,7 +64,7 @@ const statsData = [
   },
   {
     icon: staticon8,
-    count: 300,
+    count: 75,
     suffix: "+",
     label: "Farmer Service Centers",
     color: "green",

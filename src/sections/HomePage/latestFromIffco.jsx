@@ -87,7 +87,7 @@ export default function LatestFromIffco({ data }) {
   useEffect(() => {
     if (activeTab !== "news") return;
 
-    fetch("http://localhost:8082/ifc/wp-json/wp/v2/news?_embed")
+    fetch("https://covana.in/iffcobackend/wp-json/wp/v2/news?_embed")
       .then((res) => res.json())
       .then((json) => {
         const formatted = json.map((item) => ({
@@ -107,7 +107,7 @@ export default function LatestFromIffco({ data }) {
   useEffect(() => {
     if (activeTab !== "events") return;
 
-    fetch("http://localhost:8082/ifc/wp-json/wp/v2/mediarelease?_embed")
+    fetch("https://covana.in/iffcobackend/wp-json/wp/v2/mediarelease?_embed")
       .then((res) => res.json())
       .then((json) => {
         const formatted = json.slice(0, 2).map((item) => ({
@@ -125,7 +125,7 @@ export default function LatestFromIffco({ data }) {
   useEffect(() => {
     if (activeTab !== "awards") return;
 
-    fetch("http://localhost:8082/ifc/wp-json/wp/v2/awards?_embed&order=asc")
+    fetch("https://covana.in/iffcobackend/wp-json/wp/v2/awards?_embed&order=asc")
       .then((res) => res.json())
       .then((json) => {
         const formatted = json.slice(0, 2).map((item) => ({

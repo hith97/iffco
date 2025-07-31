@@ -6,7 +6,7 @@ export default function NewsBlog() {
   const [news, setNews] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:8082/ifc/wp-json/wp/v2/news/${id}?_embed`)
+    fetch(`https://covana.in/iffcobackend/wp-json/wp/v2/news/${id}?_embed`)
       .then((res) => res.json())
       .then((data) => setNews(data))
       .catch((err) => console.error("Error fetching single news:", err));

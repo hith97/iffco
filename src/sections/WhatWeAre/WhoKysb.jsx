@@ -2,6 +2,12 @@ import React from "react";
 import ksbylogo from "../../assets/ksbylogo.png";
 import kysb1 from "../../assets/kysb1.png";
 import kysbimg from "../../assets/kysbimg.png"
+import ky2 from "../../assets/ky2.png"
+import ky3 from "../../assets/ky3.png"
+import ky4 from "../../assets/ky4.png"
+import ky5 from "../../assets/ky5.png"
+import ky6 from "../../assets/ky6.png"
+
 
 function WhoKysb({ data }) {
   return (
@@ -66,7 +72,7 @@ function WhoKysb({ data }) {
               <div className="relative mb-[-125px]">
                 <div className="w-[100px] sm:w-[120px] h-[100px] sm:h-[120px] mx-auto rounded-full overflow-hidden p-[25px] bg-[#DC1F2C] duration-300">
                   <img
-                    src={kysb1}
+                    src={ky2}
                     alt="Icon"
                     className="w-full h-full object-contain"
                   />
@@ -82,7 +88,7 @@ function WhoKysb({ data }) {
               <div className="relative mb-[-125px]">
                 <div className="w-[100px] sm:w-[120px] h-[100px] sm:h-[120px] mx-auto rounded-full overflow-hidden p-[25px] bg-[#DC1F2C] duration-300">
                   <img
-                    src={kysb1}
+                    src={ky3}
                     alt="Icon"
                     className="w-full h-full object-contain"
                   />
@@ -98,7 +104,7 @@ function WhoKysb({ data }) {
               <div className="relative mb-[-125px]">
                 <div className="w-[100px] sm:w-[120px] h-[100px] sm:h-[120px] mx-auto rounded-full overflow-hidden p-[25px] bg-[#DC1F2C] duration-300">
                   <img
-                    src={kysb1}
+                    src={ky4}
                     alt="Icon"
                     className="w-full h-full object-contain"
                   />
@@ -114,7 +120,7 @@ function WhoKysb({ data }) {
               <div className="relative mb-[-125px]">
                 <div className="w-[100px] sm:w-[120px] h-[100px] sm:h-[120px] mx-auto rounded-full overflow-hidden p-[25px] bg-[#DC1F2C] duration-300">
                   <img
-                    src={kysb1}
+                    src={ky5}
                     alt="Icon"
                     className="w-full h-full object-contain"
                   />
@@ -130,7 +136,7 @@ function WhoKysb({ data }) {
               <div className="relative mb-[-125px]">
                 <div className="w-[100px] sm:w-[120px] h-[100px] sm:h-[120px] mx-auto rounded-full overflow-hidden p-[25px] bg-[#DC1F2C] duration-300">
                   <img
-                    src={kysb1}
+                    src={ky6}
                     alt="Icon"
                     className="w-full h-full object-contain"
                   />
