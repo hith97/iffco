@@ -1,5 +1,5 @@
 import React from 'react'
-import mapimg from "../../assets/mapnew.png"
+import mapimg from "../../assets/mapnw.png"
 function Presence() {
   return (
     <>

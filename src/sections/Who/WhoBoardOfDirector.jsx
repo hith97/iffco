@@ -37,7 +37,7 @@ export default function WhoBoardOfDirector() {
     return <div className="text-center py-12">Loading...</div>;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div className="container">
       <h2 className="mb-10 text-center">Board of Directors</h2>
 
       {/* Thumbnail Swiper */}
@@ -51,7 +51,7 @@ export default function WhoBoardOfDirector() {
           320: { slidesPerView: 2 },
           640: { slidesPerView: 3 },
           768: { slidesPerView: 4 },
-          1024: { slidesPerView: 6 },
+          1024: { slidesPerView: 7 },
         }}
         modules={[Navigation]}
         className="mb-12"
@@ -86,10 +86,11 @@ export default function WhoBoardOfDirector() {
                 />
               </div>
               <div className="titleteam">
-                <h3 className="text-green-700 text-2xl font-bold">
+                <h3 className="text-green-700 text-[20px] sm:text-[30px] uppercase font-bold">
                   {director.name}
                 </h3>
-                <p className="text-gray-600 text-lg font-medium mb-0 mt-1">
+                <span className="text-[30px] text-[#ED1C24]">|</span>
+                <p className="text-gray-600 text-lg font-[#008C44] italic mb-0 mt-1">
                   {director.title}
                 </p>
               </div>

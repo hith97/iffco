@@ -63,12 +63,12 @@ export default function Footer() {
               <div className="space-y-3">
                 {[
                   { name: "Home", href: "/" },
-                  { name: "About IFFCO-MC", href: "/aboutus" },
-                  { name: "Vision and Mission", href: "/aboutus#vision" },
+                  { name: "About IFFCO-MC", href: "/whoweare#overview" },
+                  { name: "Vision and Mission", href: "/whoweare#vision" },
                   { name: "Quality Policy", href: "/quality-policy" },
                   {
                     name: "Board of Directors",
-                    href: "/aboutus#board-of-director",
+                    href: "/whoweare#board-of-director",
                   },
                 ].map((item, index) => (
                   <Link
@@ -85,10 +85,10 @@ export default function Footer() {
               <div className="space-y-3">
                 {[
                   { name: "Products", href: "/products" },
-                  { name: "Events/Testimonials", href: "/events" },
+                  { name: "Events/Testimonials", href: "/latestfromiffcomc#events" },
                   { name: "CSR Policy", href: "/csr" },
-                  { name: "Video", href: "/videos" },
-                  { name: "KSBY", href: "/ksby" },
+                  { name: "Video", href: "/latestfromiffcomc#videos" },
+                  { name: "KSBY", href: "/whatweare#ksby" },
                 ].map((item, index) => (
                   <Link
                     key={index}
@@ -104,8 +104,9 @@ export default function Footer() {
               <div className="space-y-3">
                 {[
                   { name: "Privacy Policy", href: "/privacy-policy" },
-                  { name: "Contact Us", href: "/contact" },
+                  { name: "Contact Us", href: "/whereweare#contact" },
                   { name: "Career", href: "/career" },
+                  { name: "Annual Report", href: "/annual-report" },
                 ].map((item, index) => (
                   <Link
                     key={index}

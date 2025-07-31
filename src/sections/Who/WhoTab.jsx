@@ -63,7 +63,7 @@ export default function WhoTabs({ acfData }) {
             ))}
           </div>
         </div>
-
+      </div>
         {/* Static Tab Content */}
         <div className="text-gray-800 space-y-4">
           {activeTab === "overview" && <WhoOverview />}
@@ -76,7 +76,6 @@ export default function WhoTabs({ acfData }) {
           )}
           {activeTab === "board-of-director" && <WhoBoardOfDirector />} 
         </div>
-      </div>
     </section>
   );
 }

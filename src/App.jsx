@@ -27,6 +27,8 @@ import KYSB from "./pages/KYSB";
 import Events from "./pages/Event";
 import WhoWeAre from "./pages/WhoWeAre";
 import LatestFromIffcoMCPage from "./pages/LatestFromIffcoMC";
+import SingleNews from "./pages/SingleNews";
+import SingleCSR from "./pages/SingleCSR";
 
 
 function App() {
@@ -44,7 +46,6 @@ function App() {
             <Route path="/services" element={<Services />} /> 
             <Route path="/whatweare" element={<WhatWeAre />} /> 
             <Route path="/whereweare" element={<WhereWeAre />} /> 
-            <Route path="/news" element={<News />} /> 
             <Route path="/media" element={<Media />} /> 
             <Route path="/videos" element={<Video />} /> 
             <Route path="/privacy-policy" element={<Privacy />} /> 
@@ -55,7 +56,9 @@ function App() {
             <Route path="/events" element={<Events />} />
             <Route path="/whoweare" element={<WhoWeAre />} />   
             <Route path="/:categorySlug/:productSlug" element={<ProductSingle />} />
-            <Route path="/latestfromiffcomc" element={<LatestFromIffcoMCPage />} />   
+            <Route path="/latestfromiffcomc" element={<LatestFromIffcoMCPage />} /> 
+            <Route path="/news/:id" element={<SingleNews />} /> 
+            <Route path="/csr/:id" element={<SingleCSR />} /> 
           </Route>
         </Routes>
       </Router>

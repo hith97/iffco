@@ -13,52 +13,11 @@ import cir from "../../assets/cir.png";
 const tabs = [
   { id: "news", label: "News & Media" },
   { id: "awards", label: "Awards & Recognition" },
-  { id: "csr", label: "CSR Initiatives" },
   { id: "events", label: "Event Gallery" },
   { id: "videos", label: "Videos" },
 ];
 
 const staticData = {
-  awards: [
-    {
-      id: 1,
-      title: "Award for Best Innovation in Agrochemicals",
-      image: newsimg,
-    },
-    {
-      id: 2,
-      title: "Sustainability Excellence Award 2024",
-      image: newsimg,
-    },
-    {
-      id: 3,
-      title: "Outstanding Performance in R&D",
-      image: newsimg,
-    },
-  ],
-  csr: [
-    {
-      id: 1,
-      title: "CSR Initiative Title",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.....",
-      image: newsimg,
-    },
-  ],
-  events: [
-    {
-      id: 1,
-      title: "Lorem Ipsum",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      image: newsimg,
-    },
-    {
-      id: 2,
-      title: "Green Valley Program",
-      content: "An initiative to promote sustainable farming methods.",
-      image: newsimg,
-    },
-  ],
   videos: [
     {
       id: 1,
@@ -71,28 +30,38 @@ const staticData = {
 };
 
 // Award Card Component
-const AwardCard = ({ title, image }) => {
+const AwardCard = ({ title, image, content }) => {
   return (
     <div className="flex flex-col items-center text-center max-w-xs mx-auto">
       <div className="topbgimg">
         <div className="relative w-[250px] h-[250px] sm:w-[360px] sm:h-[360px] mb-4">
           <img
-            src={cir}
-            alt="Award"
+            src={image}
+            alt={title}
             className="w-[150px] h-[150px] sm:w-[250px] sm:h-[250px] object-cover rounded-full mx-auto"
           />
           <img
             src={awardbg}
             className="absolute inset-0 w-full h-full object-contain"
+            alt=""
           />
         </div>
       </div>
-      <p className="text-gray-800 text-lg font-medium px-2">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      </p>
+
+      {/* 🟢 Title */}
+      <p
+        className="font-bold titleaward text-xl text-green-800 mb-0"
+        dangerouslySetInnerHTML={{ __html: title }}
+      />
+      {/* 🔵 Description */}
+      <p
+        className="text-gray-800 text-lg font-medium px-2 mt-2"
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
     </div>
   );
 };
+
 const EventCard = ({ image, title, content }) => {
   return (
     <div className="relative group overflow-hidden rounded shadow-lg">
@@ -101,16 +70,19 @@ const EventCard = ({ image, title, content }) => {
         alt={title}
         className="w-full h-[350px] object-cover transition-transform duration-300 group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-green-900 bg-opacity-70 flex flex-col items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 text-center">
+      <div className="absolute inset-0 bg-[#008C44] bg-opacity-65 flex flex-col items-center justify-end text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 text-center">
         <h3 className="text-white italic font-bold mb-2 text-2xl">{title}</h3>
-        <p className="text-white text-xl">{content}</p>
+        {content && <p className="text-white text-xl">{content}</p>}
       </div>
     </div>
   );
 };
+
 export default function LatestFromIffco({ data }) {
   const [activeTab, setActiveTab] = useState("news");
   const [newsItems, setNewsItems] = useState([]);
+  const [eventItems, setEventItems] = useState([]);
+  const [awardItems, setAwardItems] = useState([]);
 
   useEffect(() => {
     if (activeTab !== "news") return;
@@ -131,9 +103,51 @@ export default function LatestFromIffco({ data }) {
       .catch((err) => console.error("Failed to fetch news:", err));
   }, [activeTab]);
 
+  // Events
+  useEffect(() => {
+    if (activeTab !== "events") return;
+
+    fetch("http://localhost:8082/ifc/wp-json/wp/v2/mediarelease?_embed")
+      .then((res) => res.json())
+      .then((json) => {
+        const formatted = json.slice(0, 2).map((item) => ({
+          id: item.id,
+          title: item.title?.rendered || "Untitled",
+          image:
+            item._embedded?.["wp:featuredmedia"]?.[0]?.source_url || newsimg,
+        }));
+        setEventItems(formatted);
+      })
+      .catch((err) => console.error("Failed to fetch events:", err));
+  }, [activeTab]);
+
+  // Awards
+  useEffect(() => {
+    if (activeTab !== "awards") return;
+
+    fetch("http://localhost:8082/ifc/wp-json/wp/v2/awards?_embed&order=asc")
+      .then((res) => res.json())
+      .then((json) => {
+        const formatted = json.slice(0, 2).map((item) => ({
+          id: item.id,
+          title: item.title?.rendered || "",
+          content: item.content?.rendered || "", // ⬅ Make sure this line uses `item.content.rendered`
+          image: item._embedded?.["wp:featuredmedia"]?.[0]?.source_url || cir,
+        }));
+        setAwardItems(formatted);
+      })
+      .catch((err) => console.error("Failed to fetch awards:", err));
+  }, [activeTab]);
+
   const { title, subtitle } = data || {};
   const currentItems =
-    activeTab === "news" ? newsItems : staticData[activeTab] || [];
+    activeTab === "news"
+      ? newsItems
+      : activeTab === "events"
+      ? eventItems
+      : activeTab === "awards"
+      ? awardItems
+      : staticData[activeTab] || [];
 
   return (
     <section className="w-full bg-white py-10 md:py-20 latest-home">
@@ -177,6 +191,7 @@ export default function LatestFromIffco({ data }) {
                   <AwardCard
                     key={item.id}
                     title={item.title}
+                    content={item.content}
                     image={item.image}
                   />
                 ))}
@@ -250,12 +265,13 @@ export default function LatestFromIffco({ data }) {
                             className="text-gray-700 text-base md:text-lg leading-relaxed mb-4 latestcon"
                             dangerouslySetInnerHTML={{ __html: item.content }}
                           />
-                          <a
-                            href="#"
+                          <Link
+                            to={`/news/${item.id}`}
                             className="text-red-600 font-bold text-sm hover:underline"
                           >
-                            Continue Reading →
-                          </a>
+                            Continue Reading{" "}
+                            <i class="fa-solid fa-chevron-right"></i>
+                          </Link>
                         </div>
                       </div>
                     </div>

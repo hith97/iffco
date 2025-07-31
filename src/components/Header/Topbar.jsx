@@ -4,7 +4,7 @@ export function Topbar() {
   const [isLanguageOpen, setIsLanguageOpen] = useState(false)
   const [selectedLanguage, setSelectedLanguage] = useState("English (UK)")
 
-  const languages = ["English (UK)", "English (US)", "Hindi", "Spanish"]
+  const languages = ["English (UK)","Hindi"]
 
   return (
     <div className="bg-gray-100 border-b border-gray-200">
@@ -30,7 +30,7 @@ export function Topbar() {
               </button>
 
               {isLanguageOpen && (
-                <div className="absolute right-0 top-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-50 min-w-32">
+                <div className="absolute right-0 top-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg min-w-32" style={{ zIndex: 100 }}>
                   {languages.map((language) => (
                     <button
                       key={language}

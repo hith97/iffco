@@ -1,13 +1,15 @@
 import banner from "../../assets/banner.jpg";
 
-export default function HeroTitle({ title }) {
+export default function HeroTitle({ title, imageUrl }) {
+  const backgroundImage = imageUrl || banner;
+
   return (
     <section
       className="relative flex items-center justify-center bannermain"
       style={{
-        backgroundImage: `url(${banner})`,
+        backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
-        backgroundPosition: "bottom",
+        backgroundPosition: "center  top 30%",
       }}
     >
       <div className="container">

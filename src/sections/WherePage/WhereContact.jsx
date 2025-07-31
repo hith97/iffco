@@ -1,7 +1,8 @@
 import React from "react";
 import { useState , useEffect } from "react"
 import { Phone, Navigation, MapPin } from "lucide-react"
-import confarmer from "../../assets/confarmer.png"
+import confarmer from "../../assets/conimg.png"
+import dir from "../../assets/dir.png"
 
 function WhereContact() {
     const [mapLoaded, setMapLoaded] = useState(false)
@@ -118,8 +119,8 @@ function WhereContact() {
             <div className="flex items-center justify-center">
               <img
                 src={confarmer}
-                alt="Farmer with wheat"
-                className="max-w-full h-auto rounded-lg"
+                alt="Farmer with wheat "
+                className="h-auto rounded-lg max-w-[375px]"
               />
             </div>
           </div>
@@ -128,7 +129,7 @@ function WhereContact() {
           
         </div>
       </div>
-       <div className="relative w-full h-screen overflow-hidden m-0">
+       <div className="relative w-full h-full overflow-hidden mt-0">
       {/* Full Background Google Map */}
       <div className="absolute inset-0 w-full h-full">
         <iframe
@@ -155,12 +156,31 @@ function WhereContact() {
       </div>
 
       {/* Overlay Information Card */}
-      <div className="absolute inset-0 flex items-center justify-start p-4 md:p-8">
-        <div className="bg-white/95 backdrop-blur-sm rounded-lg shadow-2xl p-6 md:p-8 max-w-md w-full ml-0 md:ml-8">
+      <div className="my-[50px] flex items-center justify-start p-4 md:p-8">
+        <div className="bg-white/95 backdrop-blur-sm rounded-lg shadow-2xl p-6 md:p-8 max-w-lg w-full ml-0 md:ml-8">
+        <div className="border-t border-gray-200 pt-6">
+            <h3 className="text-xl font-bold text-green-600 mb-4">Registered Office</h3>
+
+            <div className="sm:flex items-end mb-[20px]">
+              <div className="space-y-1 text-gray-700">
+                <p className="mb-0 max-w-[300px]">IFFCO Sadan, C-1, District Centre, Saket Place <br/> New Delhi-110017</p>
+              </div>
+
+              <div className="pt-3">
+                <button
+                  onClick={() => handleGetDirection("IFFCO Sadan, C-1, District Centre, Saket Place, New Delhi-110017")}
+                  className="flex items-center gap-2 text-sm font-medium transition-colors duration-200 text-[#008C44]"
+                >
+                  <img src={dir} className="w-5 h-5" />
+                  Get Direction
+                </button>
+              </div>
+            </div>
+          </div>
           {/* Corporate Office Section */}
           <div className="mb-8">
-            <div className="flex items-center gap-2 mb-4">
-              <h2 className="text-2xl font-bold text-green-600">Corporate Office</h2>
+            <div className="flex items-center gap-2 mb-0">
+              <h3 className="text-xl font-bold text-green-600 mb-4">Corporate Office</h3>
             </div>
 
             <div className="space-y-3">
@@ -185,14 +205,10 @@ function WhereContact() {
                 </button>
 
                 <button
-                  onClick={() =>
-                    handleGetDirection(
-                      "Surinder Jakhar Bhavan, IFFCO Tower-B, 3rd Floor, Plot. No. 3, Sector 32, Gurugram, Haryana-122003",
-                    )
-                  }
-                  className="flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 justify-center"
+                  onClick={() => handleGetDirection("IFFCO Sadan, C-1, District Centre, Saket Place, New Delhi-110017")}
+                  className="flex items-center gap-2 text-sm font-medium transition-colors duration-200 text-[#008C44]"
                 >
-                  <Navigation className="w-4 h-4" />
+                  <img src={dir} className="w-5 h-5" />
                   Get Direction
                 </button>
               </div>
@@ -200,25 +216,7 @@ function WhereContact() {
           </div>
 
           {/* Registered Office Section */}
-          <div className="border-t border-gray-200 pt-6">
-            <h3 className="text-xl font-bold text-green-600 mb-4">Registered Office</h3>
-
-            <div className="space-y-3">
-              <div className="space-y-1 text-gray-700">
-                <p>IFFCO Sadan, C-1, District Centre, Saket Place <br/> New Delhi-110017</p>
-              </div>
-
-              <div className="pt-3">
-                <button
-                  onClick={() => handleGetDirection("IFFCO Sadan, C-1, District Centre, Saket Place, New Delhi-110017")}
-                  className="flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200"
-                >
-                  <Navigation className="w-4 h-4" />
-                  Get Direction
-                </button>
-              </div>
-            </div>
-          </div>
+          
 
           {/* Location Marker Indicator */}
           <div className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-2 shadow-lg">

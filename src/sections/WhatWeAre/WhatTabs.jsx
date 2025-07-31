@@ -11,7 +11,6 @@ export default function WhatTabs({ acfData }) {
   const tabs = [
     { id: "about", label: "About IFFCO-MC" },
     { id: "infrastructure", label: "Infrastructure & Resources" },
-    { id: "r&d", label: "Research & Development" },
     { id: "ksby", label: "KSBY" },
   ];
 
@@ -42,7 +41,7 @@ export default function WhatTabs({ acfData }) {
 
   return (
     <section className="py-8 md:py-12 lg:py-16 overflow-hidden" id="who">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container">
         {/* Tabs Header */}
         <div className="flex flex-wrap mb-8 justify-center">
           <div className="tabmain">
@@ -64,20 +63,15 @@ export default function WhatTabs({ acfData }) {
             ))}
           </div>
         </div>
-
+          </div>
         {/* Static Tab Content */}
         <div className="text-gray-800 space-y-4">
           {activeTab === "about" && <WhatAbout />} 
           {activeTab === "infrastructure" && (
             <WhoInfra />
           )}
-          
-          {activeTab === "r&d" && (
-            <WhatRandD />
-          )} 
           {activeTab === "ksby" && <WhoKysb />} 
         </div>
-      </div>
     </section>
   );
 }

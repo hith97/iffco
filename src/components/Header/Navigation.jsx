@@ -30,8 +30,9 @@ export function Navbar() {
     { name: "Home", href: "/" },
     { name: "About Us", href: "/aboutus" },
     { name: "Products", href: "/products" },
-    { name: "KSBY", href: "/ksby" },
-    { name: "Latest From IFFCO-MC", href: "/latestfromiffcomc" },
+    { name: "KSBY", href: "/whatweare#ksby" },
+    { name: "CSR", href: "/csr" },
+    { name: "Careers", href: "/career" },
     { name: "Contact Us", href: "/whereweare#contact" },
   ];
 
