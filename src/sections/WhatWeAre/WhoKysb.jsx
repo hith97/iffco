@@ -1,21 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ksbylogo from "../../assets/ksbylogo.png";
 import kysb1 from "../../assets/kysb1.png";
-import kysbimg from "../../assets/kysbimg.png"
-import ky2 from "../../assets/ky2.png"
-import ky3 from "../../assets/ky3.png"
-import ky4 from "../../assets/ky4.png"
-import ky5 from "../../assets/ky5.png"
-import ky6 from "../../assets/ky6.png"
-
+import kysbimg from "../../assets/kysbimg.png";
+import ky2 from "../../assets/ky2.png";
+import ky3 from "../../assets/ky3.png";
+import ky4 from "../../assets/ky4.png";
+import ky5 from "../../assets/ky5.png";
+import ky6 from "../../assets/ky6.png";
 
 function WhoKysb({ data }) {
+  const [pdfUrl, setPdfUrl] = useState("");
+  useEffect(() => {
+    fetch("https://covana.in/iffcobackend/wp-json/wp/v2/pages/415")
+      .then((res) => res.json())
+      .then((data) => {
+        const kysbFile = data?.acf?.kysb_file;
+        if (kysbFile) {
+          setPdfUrl(kysbFile);
+        }
+      })
+      .catch((err) => console.error("Failed to fetch PDF URL:", err));
+  }, []);
+
   return (
     <>
       <div className="container">
-      <div className="kysttl">
-        <h2 className="text-center infratitle">Kisan Suraksha Bima Yojna</h2>
-        <p className="text-center">Krishi-Rasayanon Ke Saath, Bima Haathon Haath</p>
+        <div className="kysttl">
+          <h2 className="text-center infratitle">Kisan Suraksha Bima Yojna</h2>
+          <p className="text-center">
+            Krishi-Rasayanon Ke Saath, Bima Haathon Haath
+          </p>
         </div>
       </div>
       <div className="w-full py-12 md:py-16 lg:py-20 aboutsection whoinfra relative">
@@ -271,13 +285,16 @@ function WhoKysb({ data }) {
                   To purchase exclusive products of IFFCO-MC,
                   <br /> please visit the nearest IFFCO Bazar Store.
                 </p>
-                <a
-                  className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-[30px] font-semibold transition-colors duration-200"
-                  href="https://www.iffco.in/en/iffco-e-bazar"
-                  target="_blank"
-                >
-                  Download Now
-                </a>
+                
+                  <a
+                    className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-[30px] font-semibold transition-colors duration-200"
+                    href={pdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Download Now
+                  </a>
+
               </div>
             </div>
           </div>
