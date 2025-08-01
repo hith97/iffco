@@ -1,9 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade"; // 👈 Required for fade effect
+
 import iffcoimg from "../../assets/ifc2.png";
 import mclogo from "../../assets/mclogo.png";
-import whatabimg from "../../assets/whatabimg.jpg";
 
 function WhatAbout() {
+  const [scrollImages, setScrollImages] = useState([]);
+
+  useEffect(() => {
+    fetch("https://covana.in/iffcobackend/wp-json/wp/v2/pages/415")
+      .then((res) => res.json())
+      .then((data) => {
+        const acf = data.acf || {};
+        const imageUrls = [
+          acf.scroll_img_1,
+          acf.scroll_img_2,
+          acf.scroll_img_3,
+          acf.scroll_img_4,
+          acf.scroll_img_5,
+        ].filter(Boolean); // remove null/undefined
+        setScrollImages(imageUrls);
+      })
+      .catch((error) => {
+        console.error("Failed to fetch ACF scroll images", error);
+      });
+  }, []);
+
   return (
     <>
       <div className="whataboutmain">
@@ -14,9 +39,7 @@ function WhatAbout() {
               Incorporated on August 28, 2015, IFFCO-MC Crop Science Pvt. Ltd.
               (IFFCO-MC) is a Joint Venture between Indian Farmers Fertilizer
               Cooperative Limited (IFFCO) and Mitsubishi Corporation, Japan with
-              equity holding in the ratio of 51:49 respectively. The company
-              envisages to enhance farmer income by providing good quality crop
-              protection products at reasonable prices.
+              equity holding in the ratio of 51:49 respectively...
             </p>
           </div>
           <div className="abmaincon max-w-[950px] mx-auto">
@@ -36,7 +59,29 @@ function WhatAbout() {
               the farmer.
             </p>
           </div>
-          <img src={whatabimg} alt="about img" className="w-full mt-[60px]" />
+
+          {/* ⬇️ Full-Width Swiper Slider for ACF Images */}
+          {scrollImages.length > 0 && (
+            <div className="w-full mt-[60px]">
+              <Swiper
+                modules={[Autoplay, EffectFade]}
+                autoplay={{ delay: 2000, disableOnInteraction: false }}
+                loop={true}
+                effect="fade"
+                fadeEffect={{ crossFade: true }}
+              >
+                {scrollImages.map((img, index) => (
+                  <SwiperSlide key={index}>
+                    <img
+                      src={img}
+                      alt={`Slider ${index + 1}`}
+                      className="w-full h-auto object-cover aboutslider"
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          )}
         </div>
       </div>
     </>

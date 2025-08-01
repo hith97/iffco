@@ -20,7 +20,7 @@ function WhoVision() {
                 <img src={visicon} alt="misionicon" className="w-[70px]" />
                 <div className="w-[100%] md:w-[80%]">
                   <h3 className="text-[#008C44] text-4xl font-bold mb-5">
-                    Vission
+                    Vision
                   </h3>
                   <p>
                     To enhance farmer income by providing good quality crop
@@ -35,7 +35,7 @@ function WhoVision() {
             <div className="missionin max-w-lg">
               <div className="misionttl flex gap-8 items-center mb-[50px] flex-wrap md:flex-nowrap">
                 <img src={missionicon} alt="misionicon" className="w-[70px]" />
-                <h3 className="text-[#008C44] text-4xl font-bold">Mission</h3>
+                <h3 className="text-[#008C44] text-4xl font-bold">Mision</h3>
               </div>
               <div className="misioncon flex gap-8 items-center mb-8 flex-wrap md:flex-nowrap">
                 <img src={micon1} alt="misionicon" className="w-[70px]" />

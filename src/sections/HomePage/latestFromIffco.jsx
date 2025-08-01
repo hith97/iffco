@@ -38,7 +38,7 @@ const AwardCard = ({ title, image, content }) => {
           <img
             src={image}
             alt={title}
-            className="w-[150px] h-[150px] sm:w-[250px] sm:h-[250px] object-cover rounded-full mx-auto"
+            className="w-[150px] h-[150px] sm:w-[250px] sm:h-[250px] object-contain mx-auto"
           />
           <img
             src={awardbg}
@@ -96,7 +96,7 @@ export default function LatestFromIffco({ data }) {
           content: item.content?.rendered || "<p></p>",
           image:
             item._embedded?.["wp:featuredmedia"]?.[0]?.source_url || newsimg,
-          date: "25 April, 2025",
+          date: item.acf?.date || "Date not available",
         }));
         setNewsItems(formatted);
       })

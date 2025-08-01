@@ -283,8 +283,14 @@ section.bannermain::after {
     transform: translateY(-50%)  skewX(-25deg);
     top: 50%;
 }
-.infratitle {
+.kysttl {
     margin-bottom: -50px;
+}
+.aboutslider {
+    width: 100%;
+    height: 375px;
+    object-fit: cover;
+    border-radius: 300px;
 }
 .iconp {
     font-size: 18px;
@@ -359,6 +365,10 @@ section.blogimg {
     max-width: 950px;
     margin: 0 auto;
 }
+.videomain iframe {
+    width: 100%;
+    height: 100%;
+}
 
 /* Responsive */
 @media(max-width:767px){
@@ -369,6 +379,16 @@ section.blogimg {
 }
     .infratitle {
     margin-bottom: 0px;
+}
+.aboutslider {
+    width: 100%;
+    height: 375px;
+    object-fit: cover;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
 }
 .shapediv {
     transform: none;

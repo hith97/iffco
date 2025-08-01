@@ -35,7 +35,7 @@ const AwardCard = ({ title, image, content }) => {
           <img
             src={image}
             alt={title}
-            className="w-[150px] h-[150px] sm:w-[250px] sm:h-[250px] object-cover rounded-full mx-auto"
+            className="w-[150px] h-[150px] sm:w-[250px] sm:h-[250px] object-contain mx-auto"
           />
           <img
             src={awardbg}
@@ -79,6 +79,9 @@ export default function LatestFromTabs({ data }) {
   const [newsItems, setNewsItems] = useState([]);
   const [eventItems, setEventItems] = useState([]);
   const [awardItems, setAwardItems] = useState([]);
+  const [videoItems, setVideoItems] = useState([]);
+  const [activeVideo, setActiveVideo] = useState(null);
+
   useEffect(() => {
     const hash = window.location.hash.replace("#", "");
     if (tabs.some((tab) => tab.id === hash)) {
@@ -100,7 +103,7 @@ export default function LatestFromTabs({ data }) {
           content: item.content?.rendered || "<p></p>",
           image:
             item._embedded?.["wp:featuredmedia"]?.[0]?.source_url || newsimg,
-          date: "25 April, 2025",
+          date: item.acf?.date || "Date not available",
         }));
         setNewsItems(formatted);
       })
@@ -130,7 +133,9 @@ export default function LatestFromTabs({ data }) {
   useEffect(() => {
     if (activeTab !== "awards") return;
 
-    fetch("https://covana.in/iffcobackend/wp-json/wp/v2/awards?_embed&order=asc")
+    fetch(
+      "https://covana.in/iffcobackend/wp-json/wp/v2/awards?_embed&order=asc"
+    )
       .then((res) => res.json())
       .then((json) => {
         const formatted = json.map((item) => ({
@@ -144,6 +149,29 @@ export default function LatestFromTabs({ data }) {
       .catch((err) => console.error("Failed to fetch awards:", err));
   }, [activeTab]);
 
+  // videos
+
+  useEffect(() => {
+    if (activeTab !== "videos") return;
+
+    fetch("https://covana.in/iffcobackend/wp-json/wp/v2/videos")
+      .then((res) => res.json())
+      .then((json) => {
+        const formatted = json.map((item) => ({
+          id: item.id,
+          title: item.title?.rendered || "Untitled",
+          content: item.content?.rendered || "",
+          iframe: item.acf?.video_url || "",
+          image:
+            item._embedded?.["wp:featuredmedia"]?.[0]?.source_url || newsimg,
+          date: item.date || "No Date",
+        }));
+        setVideoItems(formatted);
+        setActiveVideo(formatted[0]); // Set the first as default active
+      })
+      .catch((err) => console.error("Failed to fetch videos:", err));
+  }, [activeTab]);
+
   const { title, subtitle } = data || {};
 
   const currentItems =
@@ -153,7 +181,9 @@ export default function LatestFromTabs({ data }) {
       ? eventItems
       : activeTab === "awards"
       ? awardItems
-      : staticData[activeTab] || [];
+      : activeTab === "videos"
+      ? videoItems
+      : [];
 
   return (
     <section className="w-full bg-white py-10 md:py-16">
@@ -214,6 +244,80 @@ export default function LatestFromTabs({ data }) {
                 />
               ))}
             </div>
+          ) : activeTab === "videos" ? (
+            <div className="max-w-7xl mx-auto p-4 lg:p-6">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                {/* Main Content */}
+                <div className="lg:col-span-2">
+                  {/* Embedded Video */}
+                  <div className="relative mb-4 videomain">
+                    <div
+                      className="w-full h-64 md:h-80 lg:h-96 rounded-lg overflow-hidden"
+                      dangerouslySetInnerHTML={{ __html: activeVideo?.iframe }}
+                    />
+                  </div>
+
+                  {/* Timestamp */}
+                  <p className="text-sm text-gray-500 mb-3">
+                    {new Date(activeVideo?.date).toLocaleString("en-IN", {
+                      dateStyle: "long",
+                      timeStyle: "short",
+                      timeZone: "Asia/Kolkata",
+                    })}
+                  </p>
+
+                  {/* Headline */}
+                  <h1
+                    className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 leading-tight"
+                    dangerouslySetInnerHTML={{ __html: activeVideo?.title }}
+                  />
+
+                  {/* Description (if any) */}
+                  <div
+                    className="prose prose-gray max-w-none"
+                    dangerouslySetInnerHTML={{ __html: activeVideo?.content }}
+                  />
+                </div>
+
+                {/* Sidebar */}
+                {/* Sidebar */}
+                <div className="lg:col-span-1">
+                  <div className="space-y-4">
+                    {videoItems
+                      .filter((item) => item.id !== activeVideo?.id) // Exclude the currently active video
+                      .map((article) => (
+                        <div
+                          key={article.id}
+                          className="flex gap-3 group cursor-pointer"
+                          onClick={() => {
+                            setActiveVideo(article);
+                            window.scrollTo({ top: 0, behavior: "smooth" }); // Optional: scroll to top on click
+                          }}
+                        >
+                          {/* Thumbnail */}
+                          <div className="flex-shrink-0">
+                            <img
+                              src={article.image || "/placeholder.svg"}
+                              alt="Related article thumbnail"
+                              className="w-20 h-16 md:w-24 md:h-18 object-cover rounded group-hover:opacity-80 transition-opacity"
+                            />
+                          </div>
+
+                          {/* Content */}
+                          <div className="flex-1 min-w-0">
+                            <p
+                              className="text-sm text-gray-700 font-bold leading-tight line-clamp-3 group-hover:text-gray-900 transition-colors"
+                              dangerouslySetInnerHTML={{
+                                __html: article.title,
+                              }}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                </div>
+              </div>
+            </div>
           ) : (
             <div className="relative">
               {currentItems.map((item) => (
@@ -247,7 +351,8 @@ export default function LatestFromTabs({ data }) {
                         to={`/news/${item.id}`}
                         className="text-red-600 font-bold text-sm hover:underline"
                       >
-                        Continue Reading <i class="fa-solid fa-chevron-right"></i>
+                        Continue Reading{" "}
+                        <i class="fa-solid fa-chevron-right"></i>
                       </Link>
                     </div>
                   </div>

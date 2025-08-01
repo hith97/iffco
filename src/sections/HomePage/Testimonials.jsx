@@ -27,6 +27,15 @@ export default function TestimonialSection({ data }) {
         console.error("Failed to fetch testimonials:", err);
       });
   }, []);
+  useEffect(() => {
+    if (testimonials.length === 0) return;
+
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [testimonials]);
 
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -45,11 +54,13 @@ export default function TestimonialSection({ data }) {
   return (
     <section className="w-full py-12 md:py-16 lg:py-24 sm:mb-[40px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-green-600 text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-[120px]">
+        <div className="text-center mb-12 mb-4 sm:mb-[120px]">
+          <h2 className="text-green-600 text-3xl md:text-4xl lg:text-5xl font-bold ">
             {data?.title}
           </h2>
-          {/* <p className="text-gray-600 text-lg">{data?.subtitle}</p> */}
+          <p className="text-gray-600 text-lg">
+            Empowering Fields, Earning Trust
+          </p>
         </div>
 
         <div className="flex items-center justify-center relative">
@@ -74,7 +85,7 @@ export default function TestimonialSection({ data }) {
                   className="text-gray-700 text-base md:text-lg leading-relaxed mb-6"
                   dangerouslySetInnerHTML={{ __html: testimonial.content }}
                 />
-                <Link
+                {/* <Link
                   href="#" // TODO: Replace with your actual link
                   className="text-[#ED1C24] font-bold flex items-center hover:text-green-700 transition-colors duration-200 group"
                 >
@@ -82,7 +93,7 @@ export default function TestimonialSection({ data }) {
                   <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-200">
                     <i className="fa-solid fa-chevron-right"></i>
                   </span>
-                </Link>
+                </Link> */}
               </div>
 
               {/* Image */}

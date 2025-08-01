@@ -21,9 +21,8 @@ export function Navbar() {
 
   const aboutSubItems = [
     { name: "Overview", href: "/whoweare#overview" },
-    { name: "Vision & Mission", href: "/whoweare#vision" },
-    { name: "Core Objectives", href: "/whoweare#objectives" },
-    { name: "Board of Directors", href: "/whoweare#board-of-director" },
+    { name: "About IFFCO-MC", href: "/whatweare#about" },
+    { name: "Presence", href: "/whereweare#presence" },
   ];
 
   const navigationItems = [

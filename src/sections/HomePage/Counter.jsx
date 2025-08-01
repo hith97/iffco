@@ -164,6 +164,7 @@ export default function StatsCounter() {
   return (
     <div ref={sectionRef} className="py-16 px-4 bg-white">
       <div className="container">
+      <h2 className="text-center">IFFCO-MC at a Glance</h2>
         <div className="flex flex-wrap justify-center">
           {statsData.map((stat, index) => (
             <StatCard key={index} stat={stat} shouldAnimate={isVisible} />

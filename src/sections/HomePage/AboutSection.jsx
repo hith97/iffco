@@ -23,7 +23,7 @@ export default function AboutSection({ data }) {
               dangerouslySetInnerHTML={{ __html: data.short }}
             />
 
-            <Link
+            {/* <Link
               href="#" // TODO: Replace with your actual link
               className="text-[#ED1C24] font-bold flex items-center hover:text-green-700 transition-colors duration-200 group"
             >
@@ -31,7 +31,7 @@ export default function AboutSection({ data }) {
               <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-200">
                 <i className="fa-solid fa-chevron-right"></i>
               </span>
-            </Link>
+            </Link> */}
           </div>
 
           {/* Image */}

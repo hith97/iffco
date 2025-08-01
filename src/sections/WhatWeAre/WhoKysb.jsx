@@ -13,7 +13,10 @@ function WhoKysb({ data }) {
   return (
     <>
       <div className="container">
+      <div className="kysttl">
         <h2 className="text-center infratitle">Kisan Suraksha Bima Yojna</h2>
+        <p className="text-center">Krishi-Rasayanon Ke Saath, Bima Haathon Haath</p>
+        </div>
       </div>
       <div className="w-full py-12 md:py-16 lg:py-20 aboutsection whoinfra relative">
         <div className="container">

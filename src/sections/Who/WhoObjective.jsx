@@ -9,7 +9,7 @@ export default function WhoObjective() {
         <div className="main-con w-full">
           <h2 className="text-center sm:mb-[80px]">Core Objectives</h2>
           <div className="relative ">
-          
+{/*           
             <p className="max-w-md text-left text-lg text-black relative md:absolute">
               Founded in August 2015, IFFCO-MC Crop Science Pvt. Ltd.
               established as a joint venture between IFFCO and Mitsubishi
@@ -17,7 +17,7 @@ export default function WhoObjective() {
               inception, the company has demonstrated steady growth, offering
               innovative crop protection solutions and expanding its presence in
               India’s agricultural sector.
-            </p>
+            </p> */}
             <img src={objectiveimg} alt="img" className="w-full" />
           </div>
         </div>

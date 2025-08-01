@@ -55,7 +55,7 @@ function WhereContact() {
                   Have Questions?
                 </p>
                 <h2 className="">
-                  Send us a Message
+                  Send Us a Message
                 </h2>
               </div>
 
@@ -109,8 +109,7 @@ function WhereContact() {
                   type="submit"
                   className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-full font-medium transition-colors duration-200 flex items-center gap-2"
                 >
-                  <Phone className="w-4 h-4" />
-                  Get In Touch
+                  Submit
                 </button>
               </form>
             </div>

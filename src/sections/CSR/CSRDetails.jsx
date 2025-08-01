@@ -34,6 +34,7 @@ export default function CSRDetails({ data }) {
           id: item.id,
           title: item.title?.rendered || "Untitled",
           content: item.content?.rendered || "<p></p>",
+          date: item.acf?.date || "Date not available",
           image:
             item._embedded?.["wp:featuredmedia"]?.[0]?.source_url || newsimg,
         }));
