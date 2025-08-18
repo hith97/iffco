@@ -32,8 +32,8 @@ export default function ProductTabs() {
         // Define desired order
         const desiredOrder = [
           "Herbicide",
-          "Fungicide",
           "Insecticide",
+          "Fungicide",          
           "PGR",
           "Biological",
         ];

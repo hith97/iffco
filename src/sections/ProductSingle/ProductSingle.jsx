@@ -48,53 +48,53 @@ export default function ProductSingleSection() {
   return (
     <div className="bg-gray-50 min-h-screen">
       <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="flex flex-col lg:flex-row gap-12">
           {/* Product Image */}
-          <div className="flex justify-center">
-            <div className="w-80 h-96 bg-gray-100 rounded-lg flex items-center justify-center">
+          <div className="flex justify-center lg:w-1/3">
+            <div className="w-full h-auto">
               <img
                 src={featuredImage}
                 alt={product.title.rendered}
-                className="max-w-full max-h-full object-contain"
+                className="w-full"
               />
             </div>
           </div>
 
           {/* Product Details */}
-          <div className="space-y-6">
+          <div className="lg:w-2/3 space-y-6">
             <div>
-              <h1 className="text-4xl font-bold text-green-600 mb-4">
+              <h1 className="text-[30px] md:text-[55px] font-bold text-[#008C44] mb-4">
                 {product.title.rendered}
               </h1>
-              <div className="border-b border-gray-200 pb-4">
-                <p className="text-red-500 text-lg font-medium">
+              <div className="border-y border-[#535353] py-4">
+                <p className="text-[#008C44] text-[18px] md:text-[25px] font-bold mb-0  ">
                   Pack Size Available | {product.acf.pack_size}
                 </p>
               </div>
             </div>
 
             {/* Technical Details */}
-            <div className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 py-3 border-b border-gray-100">
-                <span className="font-semibold text-gray-700">
+            <div className="">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 py-3 border-b border-[#000000]">
+                <span className="font-bold text-[#000000] text-[16px] md:text-[20px]">
                   Technical Name:
                 </span>
-                <span className="md:col-span-2 text-gray-600">
+                <span className="md:col-span-2 text-[#000000] text-[17px]">
                   {product.acf.technical_name}
                 </span>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 py-3 border-b border-gray-100">
-                <span className="font-semibold text-gray-700">Category:</span>
-                <span className="md:col-span-2 text-gray-600">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 py-3 border-b border-[#000000]">
+                <span className="font-bold text-[#000000] text-[16px] md:text-[20px]">Category:</span>
+                <span className="md:col-span-2 text-[#000000] text-[17px]">
                   {product.acf.category}
                 </span>
               </div>
             </div>
 
             {/* Description */}
-            <div className="space-y-4">
-              <h3 className="font-semibold text-gray-700 text-lg">
+            <div className="">
+              <h3 className="font-bold text-[#000000] text-[16px] md:text-[20px] mb-2">
                 Description:
               </h3>
               <div
