@@ -17,18 +17,6 @@ const tabs = [
   { id: "videos", label: "Videos" },
 ];
 
-const staticData = {
-  videos: [
-    {
-      id: 1,
-      title: "Video Highlight",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.....",
-      image: newsimg,
-    },
-  ],
-};
-
 // Award Card Component
 const AwardCard = ({ title, image, content }) => {
   return (
@@ -83,7 +71,9 @@ export default function LatestFromIffco({ data }) {
   const [newsItems, setNewsItems] = useState([]);
   const [eventItems, setEventItems] = useState([]);
   const [awardItems, setAwardItems] = useState([]);
+  const [videoItems, setVideoItems] = useState([]);
 
+  // News
   useEffect(() => {
     if (activeTab !== "news") return;
 
@@ -101,6 +91,23 @@ export default function LatestFromIffco({ data }) {
         setNewsItems(formatted);
       })
       .catch((err) => console.error("Failed to fetch news:", err));
+  }, [activeTab]);
+
+  // Videos
+  useEffect(() => {
+    if (activeTab !== "videos") return;
+
+    fetch("https://covana.in/iffcobackend/wp-json/wp/v2/videos?_embed&per_page=3")
+      .then((res) => res.json())
+      .then((json) => {
+        const formatted = json.slice(0, 3).map((item) => ({
+          id: item.id,
+          title: item.title?.rendered || "Untitled",
+          videoUrl: item.acf?.video_url || "", // iframe string
+        }));
+        setVideoItems(formatted);
+      })
+      .catch((err) => console.error("Failed to fetch videos:", err));
   }, [activeTab]);
 
   // Events
@@ -125,13 +132,15 @@ export default function LatestFromIffco({ data }) {
   useEffect(() => {
     if (activeTab !== "awards") return;
 
-    fetch("https://covana.in/iffcobackend/wp-json/wp/v2/awards?_embed&order=asc")
+    fetch(
+      "https://covana.in/iffcobackend/wp-json/wp/v2/awards?_embed&order=asc"
+    )
       .then((res) => res.json())
       .then((json) => {
         const formatted = json.slice(0, 2).map((item) => ({
           id: item.id,
           title: item.title?.rendered || "",
-          content: item.content?.rendered || "", // ⬅ Make sure this line uses `item.content.rendered`
+          content: item.content?.rendered || "",
           image: item._embedded?.["wp:featuredmedia"]?.[0]?.source_url || cir,
         }));
         setAwardItems(formatted);
@@ -139,7 +148,7 @@ export default function LatestFromIffco({ data }) {
       .catch((err) => console.error("Failed to fetch awards:", err));
   }, [activeTab]);
 
-  const { title, subtitle } = data || {};
+  const { title } = data || {};
   const currentItems =
     activeTab === "news"
       ? newsItems
@@ -147,7 +156,9 @@ export default function LatestFromIffco({ data }) {
       ? eventItems
       : activeTab === "awards"
       ? awardItems
-      : staticData[activeTab] || [];
+      : activeTab === "videos"
+      ? videoItems
+      : [];
 
   return (
     <section className="w-full bg-white py-10 md:py-20 latest-home">
@@ -184,7 +195,7 @@ export default function LatestFromIffco({ data }) {
         {/* Content Based on Active Tab */}
         {currentItems.length > 0 ? (
           activeTab === "awards" ? (
-            // Custom Awards Layout
+            // Awards Layout
             <div className="text-center">
               <div className="flex justify-center gap-12 flex-wrap items-center mb-6">
                 {currentItems.slice(0, 2).map((item) => (
@@ -206,7 +217,7 @@ export default function LatestFromIffco({ data }) {
               </div>
             </div>
           ) : activeTab === "events" ? (
-            // 🖼️ Event Gallery Grid (No Slider)
+            // Events Grid
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
               {currentItems.map((item) => (
                 <EventCard
@@ -226,7 +237,7 @@ export default function LatestFromIffco({ data }) {
               </div>
             </div>
           ) : (
-            // Swiper Slider for other tabs
+            // Swiper Slider (News + Videos)
             <div className="relative">
               <Swiper
                 modules={[Navigation]}
@@ -241,13 +252,20 @@ export default function LatestFromIffco({ data }) {
                   <SwiperSlide key={item.id}>
                     <div className="relative max-w-4xl mx-auto py-4">
                       <div className="bg-white shadow-xl overflow-hidden flex justify-between flex-col md:flex-row testiin">
-                        {/* Image */}
+                        {/* Media */}
                         <div className="w-[40%] overflow-hidden shadow-lg rightimg lftimg">
-                          <img
-                            src={item.image}
-                            alt={item.title}
-                            className="w-full h-full object-cover"
-                          />
+                          {activeTab === "videos" ? (
+                            <div
+                              className="w-full h-full videosk"
+                              dangerouslySetInnerHTML={{ __html: item.videoUrl }}
+                            />
+                          ) : (
+                            <img
+                              src={item.image}
+                              alt={item.title}
+                              className="w-full h-full object-cover"
+                            />
+                          )}
                         </div>
 
                         {/* Content */}
@@ -258,20 +276,24 @@ export default function LatestFromIffco({ data }) {
                             </p>
                           )}
                           <h3
-                            className="text-2xl font-semibold text-gray-800 mb-3 leading-snug"
+                            className="text-2xl font-semibold text-gray-800 mb-3 leading-snug md:mr-[40px]"
                             dangerouslySetInnerHTML={{ __html: item.title }}
                           />
-                          <div
-                            className="text-gray-700 text-base md:text-lg leading-relaxed mb-4 latestcon"
-                            dangerouslySetInnerHTML={{ __html: item.content }}
-                          />
-                          <Link
-                            to={`/news/${item.id}`}
-                            className="text-red-600 font-bold text-sm hover:underline"
-                          >
-                            Continue Reading{" "}
-                            <i class="fa-solid fa-chevron-right"></i>
-                          </Link>
+                          {activeTab === "news" && (
+                            <>
+                              <div
+                                className="text-gray-700 text-base md:text-lg leading-relaxed mb-4 latestcon"
+                                dangerouslySetInnerHTML={{ __html: item.content }}
+                              />
+                              <Link
+                                to={`/news/${item.id}`}
+                                className="text-red-600 font-bold text-sm hover:underline"
+                              >
+                                Continue Reading{" "}
+                                <i className="fa-solid fa-chevron-right"></i>
+                              </Link>
+                            </>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -286,7 +308,7 @@ export default function LatestFromIffco({ data }) {
               {/* View More */}
               <div className="flex justify-center mt-4">
                 <Link
-                  to="/latestfromiffcomc"
+                  to={`/latestfromiffcomc${activeTab === "videos" ? "#videos" : ""}`}
                   className="bg-red-600 text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-red-700 transition"
                 >
                   View More

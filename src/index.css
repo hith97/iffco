@@ -372,6 +372,31 @@ section.blogimg {
 .bannermain h1 {
     text-transform: uppercase;
 }
+.homepro .homeprocon {}
+
+.homepro .homeprocon:last-child div {
+    position: relative;
+}
+
+.homepro .homeprocon:last-child div::after {
+    content: " COMING SOON ";
+    color: #fff;
+    background: #ED1C24;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: -20px;
+    top: -10px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 14px;
+    padding: 18px 0;
+}
+.videosk {
+    transform: skewX(15deg);
+}
 /* Responsive */
 @media(max-width:767px){
     .csrcontentintro h3 {

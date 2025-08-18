@@ -160,9 +160,10 @@ function WhereContact() {
         <div className="border-t border-gray-200 pt-6">
             <h3 className="text-xl font-bold text-green-600 mb-4">Registered Office</h3>
 
-            <div className="sm:flex items-end mb-[20px]">
+            <div className="sm:flex items-end  justify-between mb-[20px]">
               <div className="space-y-1 text-gray-700">
                 <p className="mb-0 max-w-[300px]">IFFCO Sadan, C-1, District Centre, Saket Place <br/> New Delhi-110017</p>
+                 <p>Toll Free Number : <span className="text-red-500">1800-103-5499</span> </p>
               </div>
 
               <div className="pt-3">
@@ -192,16 +193,21 @@ function WhereContact() {
                 <p>Surinder Jakhar Bhavan, IFFCO Tower-B<br />
                 3rd Floor, Plot. No. 3, Sector 32,<br />
                 Gurugram, Haryana-122003.</p>
+               
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3 pt-1">
-                <button
+              <div className="flex flex-col sm:flex-row gap-3 pt-1 justify-between">
+              <div >
+<button
                   onClick={() => handlePhoneCall("+91-9599947001")}
                   className="flex items-center gap-2 text-red-500 hover:text-red-600 font-medium transition-colors duration-200"
                 >
                   <Phone className="w-4 h-4" />
-                  <span>+91-9599947001</span>
+                  <span>+91-9599947001 </span>
                 </button>
+                
+              </div>
+                
 
                 <button
                   onClick={() => handleGetDirection("IFFCO Sadan, C-1, District Centre, Saket Place, New Delhi-110017")}

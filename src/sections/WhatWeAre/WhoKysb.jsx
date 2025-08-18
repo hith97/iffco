@@ -282,8 +282,7 @@ function WhoKysb({ data }) {
               </div>
               <div className="flex-1 p-6 lg:p-8 text-white flex items-center justify-between">
                 <p className="text-[22px]/[42px] mb-4 text-white italic">
-                  To purchase exclusive products of IFFCO-MC,
-                  <br /> please visit the nearest IFFCO Bazar Store.
+                  To know more details about KSBY Insurance <br />Download the full document
                 </p>
                 
                   <a

@@ -68,7 +68,7 @@ export default function ProductSingleSection() {
               </h1>
               <div className="border-y border-[#535353] py-4">
                 <p className="text-[#008C44] text-[18px] md:text-[25px] font-bold mb-0  ">
-                  Pack Size Available | {product.acf.pack_size}
+                  Pack Size Available <span className="text-[#ED1C24] "> | </span> {product.acf.pack_size}
                 </p>
               </div>
             </div>

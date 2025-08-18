@@ -39,7 +39,9 @@ function WhatAbout() {
               Incorporated on August 28, 2015, IFFCO-MC Crop Science Pvt. Ltd.
               (IFFCO-MC) is a Joint Venture between Indian Farmers Fertilizer
               Cooperative Limited (IFFCO) and Mitsubishi Corporation, Japan with
-              equity holding in the ratio of 51:49 respectively...
+              equity holding in the ratio of 51:49 respectively. The company
+              envisages to enhance farmer income by providing good quality crop
+              protection products at reasonable prices.
             </p>
           </div>
           <div className="abmaincon max-w-[950px] mx-auto">

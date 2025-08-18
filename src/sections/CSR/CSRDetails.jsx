@@ -49,12 +49,12 @@ export default function CSRDetails({ data }) {
   return (
     <section className="w-full bg-white py-10 md:py-16">
       <div className="container">
-        <div className="text-center mb-12">
+        {/* <div className="text-center mb-12">
           <h2 className="text-green-600 text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             {title}
           </h2>
           <p className="text-gray-600 text-lg">{subtitle}</p>
-        </div>
+        </div> */}
 
         {/* Tabs */}
         <div className="flex flex-wrap gap-2 justify-center mb-8">

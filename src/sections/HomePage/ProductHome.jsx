@@ -52,7 +52,7 @@ export default function ProductsSection({ data }) {
         </h2>
         <p className="mb-12 opacity-90 text-white">{subtitle}</p>
 
-        <div className="flex flex-wrap justify-center gap-8 md:gap-4 lg:gap-8">
+        <div className="flex flex-wrap justify-center gap-8 md:gap-4 lg:gap-8 homepro">
           {categories.map((product, index) => {
             const { color, textColor } = colorClasses[index] || colorClasses[0];
 
@@ -60,7 +60,7 @@ export default function ProductsSection({ data }) {
               <Link
                 to={product.link || "#"}
                 key={index}
-                className="flex flex-col items-center group cursor-pointer"
+                className="flex flex-col items-center group cursor-pointer homeprocon"
               >
                 <div
                   className={`w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full bg-white ${color} border-[7px] flex items-center justify-center mb-4 transition-all duration-300`}

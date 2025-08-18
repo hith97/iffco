@@ -57,7 +57,7 @@ export function Navbar() {
   }, []);
 
   return (
-    <nav className="bg-white relative z-50">
+    <nav className="bg-white sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between py-2">
           {/* Logo */}
@@ -68,6 +68,7 @@ export function Navbar() {
           </div>
 
           {/* Desktop Navigation Menu */}
+          <div className="hidden lg:flex lg:gap-[35px]">
           <div className="hidden lg:flex items-center space-x-8">
             {navigationItems.map((item) => {
               if (item.name === "Products") {
@@ -84,7 +85,11 @@ export function Navbar() {
                       className="text-gray-700 hover:text-green-600 font-small transition-colors duration-200 flex items-center"
                     >
                       Products
-                      <i className="fa-solid fa-sort-down mt-[0px] ml-2 text-[#ED1C24]"></i>
+                      <i
+                        className={`fa-solid ${
+                          isProductDropdownOpen ? "fa-sort-up" : "fa-sort-down"
+                        } mt-[0px] ml-2 text-[#ED1C24]`}
+                      />
                     </button>
                     <div
                       className={`absolute top-full left-0 bg-white shadow-lg mt-2 rounded-md w-48 z-50 transform transition-all duration-200 origin-top scale-95 opacity-0 ${
@@ -119,7 +124,11 @@ export function Navbar() {
                       className="text-gray-700 hover:text-green-600 font-small transition-colors duration-200 flex items-center"
                     >
                       About Us
-                      <i className="fa-solid fa-sort-down mt-[0px] ml-2 text-[#ED1C24]"></i>
+                      <i
+                        className={`fa-solid ${
+                          isAboutDropdownOpen ? "fa-sort-up" : "fa-sort-down"
+                        } mt-[0px] ml-2 text-[#ED1C24]`}
+                      />
                     </button>
                     <div
                       className={`absolute top-full left-0 bg-white shadow-lg rounded-md mt-2 w-48 z-50 transform transition-all duration-200 origin-top scale-95 opacity-0 ${
@@ -179,7 +188,7 @@ export function Navbar() {
               />
             </div>
           </div>
-
+          </div>
           {/* Mobile Menu Button */}
           <div className="lg:hidden">
             <button
