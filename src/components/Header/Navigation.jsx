@@ -12,11 +12,11 @@ export function Navbar() {
   const aboutDropdownRef = useRef(null);
 
   const productSubItems = [
-    { name: "Herbicides", href: "/products#herbicide" },
-    { name: "Insecticides", href: "/products#insecticides" },
-    { name: "Fungicides", href: "/products#fungicides" },
+    { name: "Herbicide", href: "/products#herbicide" },
+    { name: "Insecticide", href: "/products#insecticides" },
+    { name: "Fungicide", href: "/products#fungicides" },
     { name: "PGR", href: "/products#pgr" },
-    { name: "Biologicals", href: "/products#new-biologicals" },
+    { name: "Biological", href: "/products#new-biologicals" },
   ];
 
   const aboutSubItems = [

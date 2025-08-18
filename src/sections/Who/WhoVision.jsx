@@ -35,7 +35,7 @@ function WhoVision() {
             <div className="missionin max-w-lg">
               <div className="misionttl flex gap-8 items-center mb-[50px] flex-wrap md:flex-nowrap">
                 <img src={missionicon} alt="misionicon" className="w-[70px]" />
-                <h3 className="text-[#008C44] text-4xl font-bold">Mision</h3>
+                <h3 className="text-[#008C44] text-4xl font-bold">Mission</h3>
               </div>
               <div className="misioncon flex gap-8 items-center mb-8 flex-wrap md:flex-nowrap">
                 <img src={micon1} alt="misionicon" className="w-[70px]" />

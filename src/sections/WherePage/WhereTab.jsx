@@ -61,7 +61,7 @@ export default function WhereTabs({ acfData }) {
         </div>
     </div>
         {/* Static Tab Content */}
-        <div className="text-gray-800 space-y-4">
+        <div className="text-gray-800 ">
           {activeTab === "presence" && <Presence /> }
            
           {activeTab === "contact" && (

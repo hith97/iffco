@@ -23,7 +23,7 @@ function WhoWeAre() {
 
   return (
     <>
-      <HeroTitle title="Who" imageUrl={featuredImage} />
+      <HeroTitle title="WHO" imageUrl={featuredImage} />
       <Breadcrumb title="Who" />
       <WhoTabs />
     </>
