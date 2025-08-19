@@ -14,7 +14,7 @@ export default function WhoBoardOfDirector() {
 
   useEffect(() => {
     fetch(
-      "https://covana.in/iffcobackend/wp-json/wp/v2/team?_embed&order=asc&orderby=date&nocache=1"
+      "https://covana.in/iffcobackend/wp-json/wp/v2/team?_embed&order=asc&orderby=date"
     )
       .then((res) => res.json())
       .then((data) => {
@@ -22,10 +22,11 @@ export default function WhoBoardOfDirector() {
           id: item.id,
           name: item.title.rendered,
           title: item.acf?.designation || "Board Member",
-          image:
-            item._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-            item.featured_image_url || // optional if you add via rest_prepare_team
-            "/placeholder.svg",
+            image:
+          item.acf?.team_image || // ✅ use ACF team image first
+          item._embedded?.["wp:featuredmedia"]?.[0]?.source_url || // fallback to featured image
+          item.featured_image_url || // optional if you added in rest_prepare_team
+          "/placeholder.svg",
           bio: item.excerpt?.rendered || "",
           detailedBio: item.content?.rendered || "",
         }));

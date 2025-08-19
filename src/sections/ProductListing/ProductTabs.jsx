@@ -106,8 +106,13 @@ export default function ProductTabs() {
                 slug: product.slug,
                 class_list: product.class_list,
                 name: product.title.rendered,
-                categoryLabel: product.acf?.category || "Product",
-                categoryColor: getCategoryColor(product.acf?.category || ""),
+                categoryLabel:
+      product._embedded?.["wp:term"]?.[0]?.[0]?.name || "Product",
+    categorySlug:
+      product._embedded?.["wp:term"]?.[0]?.[0]?.slug || "uncategorized",
+    categoryColor: getCategoryColor(
+      product._embedded?.["wp:term"]?.[0]?.[0]?.name || ""
+    ),
                 image:
                   product._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
                   "/placeholder.png",
@@ -123,11 +128,11 @@ export default function ProductTabs() {
 // Optional utility to determine category badge color
 function getCategoryColor(category) {
   const colorMap = {
-    Herbicides: "bg-green-600",
-    Insecticides: "bg-orange-500",
-    Fungicides: "bg-blue-600",
-    "Plant Growth Promoters": "bg-pink-600",
+    Herbicide: "bg-green-600",
+    Insecticide: "bg-orange-500",
+    Fungicide: "bg-blue-600",
     PGR: "bg-pink-600",
+    Biological: "bg-purple-600",
   };
   return colorMap[category] || "bg-gray-400";
 }
