@@ -29,7 +29,7 @@ function ProductListing() {
       <Breadcrumb title="PRODUCTS" />
       <ProductTabs />
       <CallToActionBanner />
-      {/* <BestSellers /> */}
+      <BestSellers />
     </>
   )
 }

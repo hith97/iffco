@@ -132,7 +132,7 @@ function WhereContact() {
       {/* Full Background Google Map */}
       <div className="absolute inset-0 w-full h-full">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.8234567890123!2d77.0424!3d28.4595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19d582e38859%3A0x2cf5fe8e5c64b1e!2sSector%2030%2C%20Gurugram%2C%20Haryana!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.4263690929724!2d77.2195587!3d28.526901499999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce18b6e655555%3A0xc109a928e089b008!2sIFFCO%20Sadan!5e0!3m2!1sen!2sin!4v1755772085929!5m2!1sen!2sin"
           width="100%"
           height="100%"
           style={{ border: 0 }}
@@ -163,7 +163,7 @@ function WhereContact() {
             <div className="sm:flex items-end  justify-between mb-[20px]">
               <div className="space-y-1 text-gray-700">
                 <p className="mb-0 max-w-[300px]">IFFCO Sadan, C-1, District Centre, Saket Place <br/> New Delhi-110017</p>
-                 <p>Toll Free Number : <span className="text-red-500">1800-103-5499</span> </p>
+                 
               </div>
 
               <div className="pt-3">
@@ -198,19 +198,25 @@ function WhereContact() {
 
               <div className="flex flex-col sm:flex-row gap-3 pt-1 justify-between">
               <div >
-<button
+              <button
                   onClick={() => handlePhoneCall("+91-9599947001")}
                   className="flex items-center gap-2 text-red-500 hover:text-red-600 font-medium transition-colors duration-200"
                 >
                   <Phone className="w-4 h-4" />
                   <span>+91-9599947001 </span>
                 </button>
-                
+                <button
+                  onClick={() => handlePhoneCall("1800-103-5499")}
+                  className="flex items-center gap-2 text-red-500 hover:text-red-600 font-medium transition-colors duration-200"
+                >
+                  <Phone className="w-4 h-4" />
+                  <span>1800-103-5499</span>
+                </button>
               </div>
                 
 
                 <button
-                  onClick={() => handleGetDirection("IFFCO Sadan, C-1, District Centre, Saket Place, New Delhi-110017")}
+                  onClick={() => handleGetDirection("IFFCO-MC Crop Science Private Limited , B 3rd Floor, Plot No, Surinder Jakhar Bhavan, IFFCO Tower, 3, Sector 32, Gurugram, Haryana 122003")}
                   className="flex items-center gap-2 text-sm font-medium transition-colors duration-200 text-[#008C44]"
                 >
                   <img src={dir} className="w-5 h-5" />

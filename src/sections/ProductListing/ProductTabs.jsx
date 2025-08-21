@@ -33,7 +33,7 @@ export default function ProductTabs() {
         const desiredOrder = [
           "Herbicide",
           "Insecticide",
-          "Fungicide",          
+          "Fungicide",
           "PGR",
           "Biological",
         ];
@@ -107,12 +107,13 @@ export default function ProductTabs() {
                 class_list: product.class_list,
                 name: product.title.rendered,
                 categoryLabel:
-      product._embedded?.["wp:term"]?.[0]?.[0]?.name || "Product",
-    categorySlug:
-      product._embedded?.["wp:term"]?.[0]?.[0]?.slug || "uncategorized",
-    categoryColor: getCategoryColor(
-      product._embedded?.["wp:term"]?.[0]?.[0]?.name || ""
-    ),
+                  product._embedded?.["wp:term"]?.[0]?.[0]?.name || "Product",
+                categorySlug:
+                  product._embedded?.["wp:term"]?.[0]?.[0]?.slug ||
+                  "uncategorized",
+                categoryColor: getCategoryColor(
+                  product._embedded?.["wp:term"]?.[0]?.[0]?.name || ""
+                ),
                 image:
                   product._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
                   "/placeholder.png",
