@@ -35,8 +35,7 @@ function CareerContact() {
               <div className="mb-6">
                 <p className="text-[#000000] text-lg mb-2">
                   To apply or express interest, write to us at{" "}
-                  <span className="text-[#ED1C24]">careers@iffcomc.in</span>
-                  or fill in the below details
+                  <span className="text-[#ED1C24]">careers@iffcomc.in</span> or fill in the below details
                 </p>
               </div>
 
