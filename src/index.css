@@ -397,8 +397,69 @@ section.blogimg {
 .videosk {
     transform: skewX(15deg);
 }
+.aboutsection.careerintro::before {
+    height: 50%;
+}
+
+.aboutsection.careerintro::after {
+    height: 50%;
+}
+.whyiffcomain {
+    box-shadow: 0px 0px 25px 0px #00000033;
+    border-radius: 120px;
+    overflow: hidden;
+    background-color: #F5F6E8;
+    
+}
+
+.whyifimg {
+    background-color: #008C44;
+    padding: 60px 50px;
+    transform: skewY(15deg);
+    margin-bottom: 30px;
+    margin-top: -10px;
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+.careerjd {
+    transform: skewX(15deg);
+    margin-left: 110px;
+    padding: 40px;
+}
+.careerjd p {
+    margin-bottom: 5px;
+}
+.whyifimg .text-white {
+    transform: skewY(-15deg);
+}
+
+.whyifcon {
+    font-size: 16px;
+    padding: 20px;
+}
+.careersmain .latestcon {
+    -webkit-line-clamp: 5;
+}
+section.blogimg.careersingle .newcon {
+    margin-top: 0;
+}
+
+section.blogimg.careersingle .newcon p {
+    margin-bottom: 20px;
+}
+@media(min-width:1199px){
+    .careerintro img.max-w-full.h-auto {
+    width: 90%;
+}
+}
 /* Responsive */
 @media(max-width:767px){
+    .careerjd {
+    margin: 0;
+    transform: none;
+    padding: 20px;
+}
+
     .csrcontentintro h3 {
     font-size: 24px;
     line-height: 30px;

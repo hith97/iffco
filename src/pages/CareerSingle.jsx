@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from "react";
 import HeroTitle from "../components/PageTitle/Hero";
 import Breadcrumb from "../components/PageTitle/Breadcum";
-import CareerIntro from "../sections/Careers/CareerIntro";
-import WhyJoinIFFCO from "../sections/Careers/CareerWhy";
-import CareersTestimonials from "../sections/Careers/Careerstesti";
-import Lifeat from "../sections/Careers/Lifeat";
-import CareersOpportunity from "../sections/Careers/CareersOpportunity";
-import CareerContact from "../sections/Careers/CareerContact";
+import SingleCareerPage from "../sections/CareerSingle/SingleCareer";
 
-function Career() {
+function CareerSingle() {
     const [featuredImage, setFeaturedImage] = useState(null);
       
         useEffect(() => {
@@ -30,14 +25,9 @@ function Career() {
     <>
       <HeroTitle title="Careers at IFFCO-MC" imageUrl={featuredImage}  />
       <Breadcrumb title="Career" />
-      <CareerIntro />
-      <WhyJoinIFFCO />
-      <CareersTestimonials />
-      <Lifeat />
-      <CareersOpportunity />
-      <CareerContact />
+      <SingleCareerPage />
     </>
   );
 }
 
-export default Career;
+export default CareerSingle;
