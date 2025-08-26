@@ -30,6 +30,8 @@ import LatestFromIffcoMCPage from "./pages/LatestFromIffcoMC";
 import SingleNews from "./pages/SingleNews";
 import SingleCSR from "./pages/SingleCSR";
 import CareerSingle from "./pages/CareerSingle";
+import Blogs from "./pages/Blog";
+import SingleBlog from "./pages/SingleBlog";
 
 
 function App() {
@@ -61,8 +63,9 @@ function App() {
             <Route path="/news/:id" element={<SingleNews />} /> 
             <Route path="/csr/:id" element={<SingleCSR />} /> 
             <Route path="/career/:id" element={<CareerSingle />} />
+            <Route path="/blogs" element={<Blogs />} /> 
+            <Route path="/blog/:slug" element={<SingleBlog />} />
             
-
           </Route>
         </Routes>
       </Router>

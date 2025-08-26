@@ -447,6 +447,9 @@ section.blogimg.careersingle .newcon {
 section.blogimg.careersingle .newcon p {
     margin-bottom: 20px;
 }
+.newcon.blogcon p {
+    margin-bottom: 20px;
+}
 @media(min-width:1199px){
     .careerintro img.max-w-full.h-auto {
     width: 90%;
