@@ -1,5 +1,5 @@
 import React from "react";
-import infraimg from "../../assets/infraimg.png";
+import infraimg from "../../assets/infraimg.gif";
 import { useState, useEffect, useRef } from "react";
 import staticon from "../../assets/staticn.png";
 import staticon2 from "../../assets/staticn2.png";

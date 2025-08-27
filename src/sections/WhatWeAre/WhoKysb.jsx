@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ksbylogo from "../../assets/ksbylogo.png";
+import ksbylogo from "../../assets/ksbylogo.gif";
 import kysb1 from "../../assets/kysb1.png";
 import kysbimg from "../../assets/kysbimg.png";
 import ky2 from "../../assets/ky2.png";
@@ -166,7 +166,7 @@ function WhoKysb({ data }) {
               </div>
             </div>
           </div>
-          <p className="text-center font-bold text-md text-[#DC1F2C] mt-6">
+          <p className="text-center font-bold text-md text-[#000000] mt-6">
             {" "}
             Natural Death is not covered under the policy.{" "}
           </p>
@@ -260,12 +260,8 @@ function WhoKysb({ data }) {
               <li>Society documents duly attested by IFFCO Field Officer</li>
               <li>NEFT details of the claimant</li>
             </ol>
-            <div className="cirtxt w-full sm:w-[40%] bg-[#F5F6E8] rounded-[10px] sm:rounded-[110px] p-[15px] sm:p-[40px] text-center">
-              <p className="text-[25px] text-[#DC1F2C] font-bold">
-                All documents are to be submitted within 2 months of the
-                accident / death.
-              </p>
-            </div>
+            <p className="text-center font-bold text-md text-[#000000] mt-6">All documents are to be submitted within 2 months of the
+                accident / death.</p>            
           </div>
         </div>
       </div>

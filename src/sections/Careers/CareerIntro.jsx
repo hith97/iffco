@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import careerimg from "../../assets/careerimg.png"
+import careerimg from "../../assets/careerimg.gif"
 
 function CareerIntro() {
 

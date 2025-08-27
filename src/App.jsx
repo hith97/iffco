@@ -32,11 +32,13 @@ import SingleCSR from "./pages/SingleCSR";
 import CareerSingle from "./pages/CareerSingle";
 import Blogs from "./pages/Blog";
 import SingleBlog from "./pages/SingleBlog";
+import Preloader from "./components/Preloader";
 
 
 function App() {
   return (
     <>
+    <Preloader>
       <Router basename="iffcoweb">
         <Routes>
           <Route element={<AppLayout />}>
@@ -69,6 +71,7 @@ function App() {
           </Route>
         </Routes>
       </Router>
+      </Preloader>
     </>
   );
 }

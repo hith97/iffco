@@ -15,7 +15,9 @@ export default function NewsSection() {
 
   // Fetch News
   useEffect(() => {
-    fetch("https://covana.in/iffcobackend/wp-json/wp/v2/careertestimonials?_embed")
+    fetch(
+      "https://covana.in/iffcobackend/wp-json/wp/v2/careertestimonials?_embed"
+    )
       .then((res) => res.json())
       .then((json) => {
         const formatted = json.map((item) => ({
@@ -25,6 +27,7 @@ export default function NewsSection() {
           image:
             item._embedded?.["wp:featuredmedia"]?.[0]?.source_url || newsimg,
           date: item.acf?.date || "Date not available",
+          designation: item.acf?.designation || "",   // ✅ add this
         }));
         setNewsItems(formatted);
       })
@@ -67,6 +70,16 @@ export default function NewsSection() {
                           className="text-gray-700 text-base md:text-lg leading-relaxed mb-4"
                           dangerouslySetInnerHTML={{ __html: item.content }}
                         />
+                        <div className="mt-4">
+                          <h4 className="text-lg md:text-md font-semibold text-green-700">
+                            {item.title}
+                          </h4>
+                          {item.designation && (
+                            <p className="text-gray-500 text-sm md:text-base">
+                              {item.designation}
+                            </p>
+                          )}
+                        </div>
                       </div>
                       {/* Image */}
                       <div className="w-[40%] overflow-hidden shadow-lg rightimg">

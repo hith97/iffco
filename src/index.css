@@ -97,6 +97,7 @@ h2, .h2{
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    max-width: 390px;
 }
 .rightimg.lftimg img {
     margin-left: 70px;

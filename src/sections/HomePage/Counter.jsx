@@ -23,7 +23,7 @@ const statsData = [
   {
     icon: staticon2,
     count: 18,
-    suffix: "",
+    suffix: "+",
     label: "States Covered",
     color: "red",
   },
@@ -66,7 +66,7 @@ const statsData = [
     icon: staticon8,
     count: 75,
     suffix: "+",
-    label: "Farmer Service Centers",
+    label: "IFFCO FSC’s",
     color: "green",
   },
   {
@@ -80,7 +80,7 @@ const statsData = [
     icon: staticon10,
     count: 3000,
     suffix: "+",
-    label: "Primary Agriculture <br/> Co-operative Societies",
+    label: "PAC’s",
     color: "red",
   },
 ];

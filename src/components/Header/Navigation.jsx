@@ -13,10 +13,10 @@ export function Navbar() {
 
   const productSubItems = [
     { name: "Herbicide", href: "/products#herbicide" },
-    { name: "Insecticide", href: "/products#insecticides" },
-    { name: "Fungicide", href: "/products#fungicides" },
+    { name: "Insecticide", href: "/products#insecticide" },
+    { name: "Fungicide", href: "/products#fungicide" },
     { name: "PGR", href: "/products#pgr" },
-    { name: "Biological", href: "/products#new-biologicals" },
+    { name: "Biological", href: "/products#biological" },
   ];
 
   const aboutSubItems = [
@@ -61,7 +61,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between py-2">
           {/* Logo */}
-          <div className="flex items-center max-w-[150px]">
+          <div className="flex items-center max-w-[200px]">
             <div className="text-white px-4 py-2 rounded-t-lg font-bold text-lg">
               <img src={logo} alt="Logo" className="w-full" />
             </div>
