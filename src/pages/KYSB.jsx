@@ -12,7 +12,7 @@ export default function KYSB() {
   const [acfData, setAcfData] = useState(null);
 
   useEffect(() => {
-    fetch("https://covana.in/iffcobackend/wp-json/wp/v2/pages/265")
+    fetch("https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/pages/265")
       .then((res) => res.json())
       .then((page) => {
         const acf = page.acf;

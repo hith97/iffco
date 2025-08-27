@@ -8,7 +8,7 @@ const BlogGrid = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://covana.in/iffcobackend/wp-json/wp/v2/posts?_embed") 
+    fetch("https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/posts?_embed") 
       .then((res) => res.json())
       .then((data) => {
         const formattedPosts = data.map((post) => ({

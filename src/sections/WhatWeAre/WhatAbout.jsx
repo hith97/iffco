@@ -11,7 +11,7 @@ function WhatAbout() {
   const [scrollImages, setScrollImages] = useState([]);
 
   useEffect(() => {
-    fetch("https://covana.in/iffcobackend/wp-json/wp/v2/pages/415")
+    fetch("https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/pages/415")
       .then((res) => res.json())
       .then((data) => {
         const acf = data.acf || {};

@@ -11,7 +11,7 @@ import ky6 from "../../assets/ky6.png";
 function WhoKysb({ data }) {
   const [pdfUrl, setPdfUrl] = useState("");
   useEffect(() => {
-    fetch("https://covana.in/iffcobackend/wp-json/wp/v2/pages/415")
+    fetch("https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/pages/415")
       .then((res) => res.json())
       .then((data) => {
         const kysbFile = data?.acf?.kysb_file;

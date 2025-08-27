@@ -10,7 +10,7 @@ export default function TestimonialSection({ data }) {
   const [testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
-    fetch("https://covana.in/iffcobackend/wp-json/wp/v2/testimonials?_embed")
+    fetch("https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/testimonials?_embed")
       .then((res) => res.json())
       .then((json) => {
         const formatted = json.map((item) => ({
