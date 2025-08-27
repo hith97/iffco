@@ -6,16 +6,18 @@ import TestimonialSection from "../sections/HomePage/Testimonials";
 import NewsSection from "../sections/HomePage/News";
 import StatsCounter from "../sections/HomePage/Counter";
 import LatestFromIffco from "../sections/HomePage/latestFromIffco";
+import { Helmet } from "react-helmet";
 
 function HomePage() {
   const [acfData, setAcfData] = useState(null);
+  const [seoMeta, setSeoMeta] = useState(null);
 
   useEffect(() => {
     fetch("https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/pages/37")
       .then((res) => res.json())
       .then((data) => {
         const acf = data.acf;
-
+        const seo = data.seo_meta;
         const resolved = {
           banner: {
             who: {
@@ -105,7 +107,7 @@ function HomePage() {
             ],
           },
         };
-
+        setSeoMeta(seo);
         setAcfData(resolved);
       })
       .catch((err) => console.error("Home page fetch failed:", err));
@@ -115,6 +117,15 @@ function HomePage() {
 
   return (
     <>
+     {/* ✅ SEO Meta Tags */}
+      <Helmet>
+        <title>{seoMeta?.meta_title || seoMeta?.site_title}</title>
+        <meta
+          name="description"
+          content={seoMeta?.meta_description || ""}
+        />
+      </Helmet>
+      
       <Banner data={acfData.banner} />
       <AboutSection data={acfData.about} />
       <StatsCounter />

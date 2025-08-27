@@ -39,7 +39,7 @@ function App() {
   return (
     <>
     <Preloader>
-      <Router basename="iffcoweb">
+      <Router>
         <Routes>
           <Route element={<AppLayout />}>
             <Route path="/" element={<HomePage />} />
