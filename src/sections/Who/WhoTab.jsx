@@ -5,6 +5,7 @@ import WhoOverview from "./WhoOverview";
 import WhoVision from "./WhoVision";
 import WhoObjective from "./WhoObjective";
 import WhoBoardOfDirector from "./WhoBoardOfDirector";
+import { motion } from "framer-motion";
 
 export default function WhoTabs({ acfData }) {
   const tabs = [
@@ -52,30 +53,33 @@ export default function WhoTabs({ acfData }) {
                   setActiveTab(tab.id);
                   window.location.hash = tab.id;
                 }}
-                className={`capitalize px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                  activeTab === tab.id
-                    ? "bg-[#d12627] text-white"
-                    : "text-gray-700"
+                className={`relative capitalize px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                  activeTab === tab.id ? "text-white" : "text-gray-700"
                 }`}
               >
-                {tab.label}
+                {/* 🔴 Sliding Background */}
+                {activeTab === tab.id && (
+                  <motion.div
+                    layoutId="active-pill"
+                    className="absolute inset-0 bg-[#d12627] rounded-full"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
+                {/* Text always on top */}
+                <span className="relative z-10">{tab.label}</span>
               </button>
             ))}
           </div>
         </div>
       </div>
-        {/* Static Tab Content */}
-        <div className="text-gray-800 space-y-4">
-          {activeTab === "overview" && <WhoOverview />}
-          
-          {activeTab === "vision" && (
-            <WhoVision />
-          )}
-          {activeTab === "objectives" && (
-            <WhoObjective />
-          )}
-          {activeTab === "board-of-director" && <WhoBoardOfDirector />} 
-        </div>
+      {/* Static Tab Content */}
+      <div className="text-gray-800 space-y-4">
+        {activeTab === "overview" && <WhoOverview />}
+
+        {activeTab === "vision" && <WhoVision />}
+        {activeTab === "objectives" && <WhoObjective />}
+        {activeTab === "board-of-director" && <WhoBoardOfDirector />}
+      </div>
     </section>
   );
 }

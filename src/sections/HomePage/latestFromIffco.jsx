@@ -9,6 +9,9 @@ import newsimg from "../../assets/news.png";
 import { Link } from "react-router-dom";
 import awardbg from "../../assets/awardbg.png";
 import cir from "../../assets/cir.png";
+import LeftArow from "../../assets/left.png";
+import RightArow from "../../assets/right.png";
+import { motion } from "framer-motion";
 
 const tabs = [
   { id: "news", label: "News & Media" },
@@ -175,28 +178,35 @@ export default function LatestFromIffco({ data }) {
 
         {/* Tabs */}
         <div className="flex flex-wrap gap-2 justify-center mb-8">
-          <div className="tabmain">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`capitalize px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                  activeTab === tab.id
-                    ? "bg-[#d12627] text-white"
-                    : "text-gray-700"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-        </div>
+  <div className="tabmain relative flex gap-2 bg-[#f8f8ee] rounded-full p-2">
+    {tabs.map((tab) => (
+      <button
+        key={tab.id}
+        onClick={() => setActiveTab(tab.id)}
+        className={`relative px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+          activeTab === tab.id ? "text-white" : "text-gray-700"
+        }`}
+      >
+        {/* 🔴 Sliding Background */}
+        {activeTab === tab.id && (
+          <motion.div
+            layoutId="active-pill"
+            className="absolute inset-0 bg-[#d12627] rounded-full"
+            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+          />
+        )}
+        {/* Text stays above pill */}
+        <span className="relative z-10">{tab.label}</span>
+      </button>
+    ))}
+  </div>
+</div>
 
         {/* Content Based on Active Tab */}
         {currentItems.length > 0 ? (
           activeTab === "awards" ? (
             // Awards Layout
-            <div className="text-center">
+            <div className="text-center custmw">
               <div className="flex justify-center gap-12 flex-wrap items-center mb-6">
                 {currentItems.slice(0, 2).map((item) => (
                   <AwardCard
@@ -218,7 +228,7 @@ export default function LatestFromIffco({ data }) {
             </div>
           ) : activeTab === "events" ? (
             // Events Grid
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 custmw">
               {currentItems.map((item) => (
                 <EventCard
                   key={item.id}
@@ -238,7 +248,7 @@ export default function LatestFromIffco({ data }) {
             </div>
           ) : (
             // Swiper Slider (News + Videos)
-            <div className="relative">
+            <div className="relative custmw">
               <Swiper
                 modules={[Navigation]}
                 navigation={{
@@ -301,8 +311,12 @@ export default function LatestFromIffco({ data }) {
                 ))}
 
                 {/* Swiper Buttons */}
-                <button className="swiper-button-prev absolute -left-6 top-1/2 -translate-y-1/2 flex items-center justify-center text-red-600 z-10"></button>
-                <button className="swiper-button-next absolute -right-6 top-1/2 -translate-y-1/2 flex items-center justify-center text-red-600 z-10"></button>
+                <button className="swiper-button-prev absolute -left-6 top-1/2 -translate-y-1/2 flex items-center justify-center text-red-600 z-10">
+                  <img src={LeftArow}  />
+                </button>
+                <button className="swiper-button-next absolute -right-6 top-1/2 -translate-y-1/2 flex items-center justify-center text-red-600 z-10">
+                  <img src={RightArow}  />
+                </button>
               </Swiper>
 
               {/* View More */}

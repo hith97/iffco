@@ -193,7 +193,7 @@ function WhoInfra() {
               <img
                 src={infraimg}
                 alt="About IFFCO-MC"
-                className="max-w-full h-auto"
+                className="w-full h-auto"
               />
             </div>
           </div>

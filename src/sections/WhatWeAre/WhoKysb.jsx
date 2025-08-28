@@ -166,9 +166,9 @@ function WhoKysb({ data }) {
               </div>
             </div>
           </div>
-          <p className="text-center font-bold text-md text-[#000000] mt-6">
+          <p className="text-center text-md text-[#000000] mt-6">
             {" "}
-            Natural Death is not covered under the policy.{" "}
+           * Natural Death is not covered under the policy.{" "}
           </p>
         </div>
       </div>

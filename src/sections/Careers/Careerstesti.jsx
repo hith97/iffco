@@ -40,7 +40,7 @@ export default function NewsSection() {
         {/* Title */}
         <div className="text-center mb-12">
           <h2 className="text-green-600 text-3xl md:text-4xl lg:text-5xl font-bold mb-[20px] sm:mb-[100px]">
-            Latest News
+            Employee Testimonial
           </h2>
         </div>
 

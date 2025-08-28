@@ -180,10 +180,10 @@ section.bannermain::after {
     position: absolute;
     background-image: var(--after-bg);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     width: 65%;
     height: 100%;
-    top: 20%;
+    top: -10%;
     left: 48%;
     z-index: -1;
 }
@@ -216,7 +216,10 @@ section.bannermain::after {
 .latest-home {
     position: relative;
 }
-
+.newcon p img.alignnone {
+    width: 32.33%;
+    display: inline-block;
+}
 .latest-home::before {
     position: absolute;
     content: "";
@@ -451,6 +454,24 @@ section.blogimg.careersingle .newcon p {
 .newcon.blogcon p {
     margin-bottom: 20px;
 }
+.latest-home .swiper-button-prev:after,.latest-home .swiper-button-next:after{
+    display: none;
+}
+.custmw {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+section.blogimg.careersingle .newcon li {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+section.blogimg.careersingle .newcon ul {
+    display: flex;
+    flex-direction: column;
+}
 @media(min-width:1199px){
     .careerintro img.max-w-full.h-auto {
     width: 90%;
@@ -559,5 +580,9 @@ section.bannermain::after {
 }
 .msmain::after {
     display: none;
+}
+.newcon p img.alignnone {
+    width: 100%;
+    display: inline-block;
 }
 }

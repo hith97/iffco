@@ -107,7 +107,7 @@ export default function Footer() {
                   { name: "Contact Us", href: "/whereweare#contact" },
                   { name: "Career", href: "/career" },
                   { name: "Annual Report", href: "/annual-report" },
-                  { name: "Blogs", href: "/blogs" },
+                  {/* { name: "Blogs", href: "/blogs" }, */}
                 ].map((item, index) => (
                   <Link
                     key={index}

@@ -4,7 +4,7 @@ import micon1 from "../../assets/micon1.png";
 import micon2 from "../../assets/micon2.png";
 import micon3 from "../../assets/micon3.png";
 import visicon from "../../assets/visionicon.png";
-import bgvso from "../../assets/bgvso.png";
+import bgvso from "../../assets/bgvso.gif";
 
 function WhoVision() {
   return (

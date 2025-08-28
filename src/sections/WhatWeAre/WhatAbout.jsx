@@ -33,7 +33,7 @@ function WhatAbout() {
     <>
       <div className="whataboutmain">
         <div className="container">
-          <div className="flex flex-wrap md:flex-nowrap gap-[10px] md:gap-[50px] mb-[40px] max-w-[950px] mx-auto">
+          <div className="flex flex-wrap md:flex-nowrap gap-[10px] md:gap-[80px] mb-[40px] max-w-[950px] mx-auto">
             <img src={iffcoimg} alt="iffcomg" className="w-auto sm:w-[280px]" />
             <p className="mb-0">
               Incorporated on August 28, 2015, IFFCO-MC Crop Science Pvt. Ltd.

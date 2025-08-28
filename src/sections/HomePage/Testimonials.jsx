@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import TopQuote from "../../assets/tq.png";
 import BotQuote from "../../assets/bq.png";
 import { Link } from "react-router-dom";
+import LeftArow from "../../assets/left.png";
+import RightArow from "../../assets/right.png";
 
 export default function TestimonialSection({ data }) {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -59,16 +61,18 @@ export default function TestimonialSection({ data }) {
             {data?.title}
           </h2>
           <p className="text-gray-600 text-lg">
-            Empowering Fields, Earning Trust
+            Empowering Farmers, Earning Trust
           </p>
         </div>
 
         <div className="flex items-center justify-center relative">
           <button
-            className="hidden sm:inline-block absolute left-0 z-10 w-10 h-10 md:w-12 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-green-600 hover:bg-green-50 transition-colors duration-200 -ml-6"
+            className="hidden sm:inline-block absolute left-0 md:left-[80px] z-10 h-10 md:h-12 flex items-center justify-center transition-colors duration-200"
             onClick={prevTestimonial}
           >
-            <span className="text-xl md:text-2xl">‹</span>
+            <span className="text-xl md:text-2xl">
+              <img src={LeftArow} alt="Left Aerrow" />
+            </span>
           </button>
 
           <div className="relative max-w-4xl mx-auto">
@@ -113,10 +117,12 @@ export default function TestimonialSection({ data }) {
           </div>
 
           <button
-            className="hidden sm:inline-block absolute right-0 z-10 w-10 h-10 md:w-12 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-green-600 hover:bg-green-50 transition-colors duration-200 -mr-6"
+            className="hidden sm:inline-block absolute right-0 md:right-[80px] z-10 h-10 md:h-12 flex items-center justify-center transition-colors duration-200"
             onClick={nextTestimonial}
           >
-            <span className="text-xl md:text-2xl">›</span>
+            <span className="text-xl md:text-2xl">
+              <img src={RightArow} alt="Right Arrow" />
+            </span>
           </button>
         </div>
       </div>

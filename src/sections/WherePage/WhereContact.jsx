@@ -157,7 +157,7 @@ function WhereContact() {
       {/* Overlay Information Card */}
       <div className="my-[50px] flex items-center justify-start p-4 md:p-8">
         <div className="bg-white/95 backdrop-blur-sm rounded-lg shadow-2xl p-6 md:p-8 max-w-lg w-full ml-0 md:ml-8">
-        <div className="border-t border-gray-200 pt-6">
+        <div className="">
             <h3 className="text-xl font-bold text-green-600 mb-4">Registered Office</h3>
 
             <div className="sm:flex items-end  justify-between mb-[20px]">
@@ -229,10 +229,6 @@ function WhereContact() {
           {/* Registered Office Section */}
           
 
-          {/* Location Marker Indicator */}
-          <div className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-2 shadow-lg">
-            <MapPin className="w-5 h-5" />
-          </div>
         </div>
       </div>
 

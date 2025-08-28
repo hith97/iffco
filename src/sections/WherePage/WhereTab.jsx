@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Presence from "./Presence";
 import WhereContact from "./WhereContact";
+import { motion } from "framer-motion";
 
 export default function WhereTabs({ acfData }) {
   const tabs = [
@@ -48,27 +49,31 @@ export default function WhereTabs({ acfData }) {
                   setActiveTab(tab.id);
                   window.location.hash = tab.id;
                 }}
-                className={`capitalize px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                  activeTab === tab.id
-                    ? "bg-[#d12627] text-white"
-                    : "text-gray-700"
+                className={`relative capitalize px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                  activeTab === tab.id ? "text-white" : "text-gray-700"
                 }`}
               >
-                {tab.label}
+                {/* 🔴 Sliding Background */}
+                {activeTab === tab.id && (
+                  <motion.div
+                    layoutId="active-pill"
+                    className="absolute inset-0 bg-[#d12627] rounded-full"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
+                {/* Text always on top */}
+                <span className="relative z-10">{tab.label}</span>
               </button>
             ))}
           </div>
         </div>
-    </div>
-        {/* Static Tab Content */}
-        <div className="text-gray-800 ">
-          {activeTab === "presence" && <Presence /> }
-           
-          {activeTab === "contact" && (
-            <WhereContact />
-          )}
-          
-        </div>
+      </div>
+      {/* Static Tab Content */}
+      <div className="text-gray-800 ">
+        {activeTab === "presence" && <Presence />}
+
+        {activeTab === "contact" && <WhereContact />}
+      </div>
     </section>
   );
 }
