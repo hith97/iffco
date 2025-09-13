@@ -12,7 +12,7 @@ export default function ProductSingleSection() {
     const fetchProductBySlug = async () => {
       try {
         const res = await fetch(
-          `https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/product?slug=${productSlug}&_embed`
+          `https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/product?slug=${productSlug}&_embed`
         );
         const data = await res.json();
 

@@ -6,7 +6,7 @@ export default function SingleCSRPage() {
   const [news, setNews] = useState(null);
 
   useEffect(() => {
-    fetch(`https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/csr/${id}?_embed`)
+    fetch(`https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/csr/${id}?_embed`)
       .then((res) => res.json())
       .then((data) => setNews(data))
       .catch((err) => console.error("Error fetching single news:", err));

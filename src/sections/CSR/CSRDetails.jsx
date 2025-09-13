@@ -27,7 +27,7 @@ export default function CSRDetails({ data }) {
   useEffect(() => {
     if (activeTab !== "csr") return;
 
-    fetch("https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/csr?_embed&order=asc")
+    fetch("https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/csr?_embed&order=asc")
       .then((res) => res.json())
       .then((json) => {
         const formatted = json.map((item) => ({

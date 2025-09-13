@@ -7,20 +7,12 @@ export default function ProductTabs() {
   const [categories, setCategories] = useState([
     { id: "all", name: "Show All", slug: "all" },
   ]);
-  const [activeTab, setActiveTab] = useState("all");
+  const [activeTab, setActiveTab] = useState(""); // start empty
   const [products, setProducts] = useState([]);
-
-  // Handle initial hash-based tab activation
-  useEffect(() => {
-    const hash = window.location.hash.replace("#", "");
-    if (hash) {
-      setActiveTab(hash);
-    }
-  }, []);
 
   // Fetch categories on mount
   useEffect(() => {
-    fetch(`https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/product_category`)
+    fetch(`https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/product_category`)
       .then((res) => res.json())
       .then((data) => {
         const formatted = data.map((cat) => ({
@@ -43,20 +35,34 @@ export default function ProductTabs() {
           .map((name) => formatted.find((cat) => cat.name === name))
           .filter(Boolean);
 
-        // Add "Show All" at the start
-        setCategories([
+        // Final categories with "Show All" at start
+        const finalCategories = [
           { id: "all", name: "Show All", slug: "all" },
           ...ordered,
-        ]);
+        ];
+
+        setCategories(finalCategories);
+
+        // Decide initial tab:
+        const hash = window.location.hash.replace("#", "");
+        if (hash) {
+          setActiveTab(hash); // use hash if present
+        } else if (ordered.length > 0) {
+          setActiveTab(ordered[0].slug); // default to Herbicide
+        } else {
+          setActiveTab("all"); // fallback
+        }
       });
   }, []);
 
   // Fetch products based on active tab
   useEffect(() => {
+    if (!activeTab) return; // wait until category is set
+
     const url =
       activeTab === "all"
-        ? `https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/product?per_page=100&_embed`
-        : `https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/product?product_category_slug=${activeTab}&per_page=100&_embed`;
+        ? `https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/product?per_page=100&_embed`
+        : `https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/product?product_category_slug=${activeTab}&per_page=100&_embed`;
 
     fetch(url)
       .then((res) => res.json())
@@ -74,6 +80,7 @@ export default function ProductTabs() {
           and sold strictly at the printed Maximum Retail Price (MRP), ensuring
           fair value and eliminating middle-layer inflation.
         </p>
+
         {/* Tabs */}
         <div className="flex flex-wrap mb-8 justify-center">
           <div className="tabmain">
@@ -126,7 +133,7 @@ export default function ProductTabs() {
   );
 }
 
-// Optional utility to determine category badge color
+// Utility to determine category badge color
 function getCategoryColor(category) {
   const colorMap = {
     Herbicide: "bg-green-600",

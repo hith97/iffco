@@ -12,7 +12,7 @@ function SingleBlog() {
     });
   
     useEffect(() => {
-      fetch("https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/pages/677?_embed")
+      fetch("https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/pages/677?_embed")
         .then((res) => res.json())
         .then((data) => {
           setPageData({

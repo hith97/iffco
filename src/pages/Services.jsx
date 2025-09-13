@@ -12,7 +12,7 @@ export default function Services() {
   const [acfData, setAcfData] = useState(null);
 
   useEffect(() => {
-    fetch("https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/pages/233")
+    fetch("https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/pages/233")
       .then((res) => res.json())
       .then((page) => {
         const acf = page.acf;

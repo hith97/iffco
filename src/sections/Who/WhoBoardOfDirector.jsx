@@ -14,7 +14,7 @@ export default function WhoBoardOfDirector() {
 
   useEffect(() => {
     fetch(
-      "https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/team?_embed&order=asc&orderby=date"
+      "https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/team?_embed&order=asc&orderby=date"
     )
       .then((res) => res.json())
       .then((data) => {

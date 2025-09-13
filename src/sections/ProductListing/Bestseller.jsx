@@ -16,7 +16,7 @@ export default function BestSellers() {
 
   useEffect(() => {
     fetch(
-      `https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/product?per_page=100&_embed`
+      `https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/product?per_page=100&_embed`
     )
       .then((res) => res.json())
       .then((data) => {

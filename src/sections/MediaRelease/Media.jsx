@@ -4,7 +4,7 @@ export default function MediaComponent() {
   const [newsItems, setNewsItems] = useState([]);
 
   useEffect(() => {
-    fetch("https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/mediarelease")
+    fetch("https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/mediarelease")
       .then((res) => res.json())
       .then((data) => {
         setNewsItems(data);

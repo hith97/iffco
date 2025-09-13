@@ -4,7 +4,7 @@ function Lifeat() {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    fetch("https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/pages/660")
+    fetch("https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/pages/660")
       .then((res) => res.json())
       .then((data) => {
         const acf = data.acf;

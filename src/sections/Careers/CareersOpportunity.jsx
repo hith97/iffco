@@ -13,7 +13,7 @@ export default function CareersOpportunity() {
 
   // Fetch News
   useEffect(() => {
-    fetch("https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/career?_embed")
+    fetch("https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/career?_embed")
       .then((res) => res.json())
       .then((json) => {
         const formatted = json.map((item) => ({

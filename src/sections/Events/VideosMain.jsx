@@ -4,7 +4,7 @@ export default function VideoComponent() {
   const [newsItems, setNewsItems] = useState([]);
 
   useEffect(() => {
-    fetch("https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/videos")
+    fetch("https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/videos")
       .then((res) => res.json())
       .then((data) => {
         setNewsItems(data);
