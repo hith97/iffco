@@ -85,6 +85,7 @@ const statsData = [
   },
 ];
 
+// counter hook
 function useCountUp(end, duration = 2000, shouldStart = false) {
   const [count, setCount] = useState(0);
 
@@ -117,12 +118,16 @@ function useCountUp(end, duration = 2000, shouldStart = false) {
   return count;
 }
 
+// intersection observer hook
 function useIntersectionObserver(ref, options = {}) {
   const [isIntersecting, setIsIntersecting] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
-      setIsIntersecting(entry.isIntersecting);
+      if (entry.isIntersecting) {
+        setIsIntersecting(true);
+        observer.disconnect(); // ✅ only trigger once
+      }
     }, options);
 
     if (ref.current) {
@@ -164,14 +169,16 @@ function StatCard({ stat, shouldAnimate }) {
 export default function StatsCounter() {
   const sectionRef = useRef(null);
   const isVisible = useIntersectionObserver(sectionRef, {
-    threshold: 0.3,
-    rootMargin: "0px 0px -100px 0px",
+    threshold: 0.1, // ✅ easier to trigger on mobile
+    rootMargin: "0px 0px 0px 0px",
   });
 
   return (
     <div ref={sectionRef} className="py-16 px-4 bg-white">
       <div className="container">
-        <h2 className="text-center">IFFCO-MC at a Glance</h2>
+        <h2 className="text-center text-2xl font-bold mb-10">
+          IFFCO-MC at a Glance
+        </h2>
         <div className="flex flex-wrap justify-center">
           {statsData.map((stat, index) => (
             <StatCard key={index} stat={stat} shouldAnimate={isVisible} />

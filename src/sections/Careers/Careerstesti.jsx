@@ -16,7 +16,7 @@ export default function NewsSection() {
   // Fetch News
   useEffect(() => {
     fetch(
-      "https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/careertestimonials?_embed"
+      "https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/careertestimonials?_embed"
     )
       .then((res) => res.json())
       .then((json) => {

@@ -4,7 +4,7 @@ export default function NewsComponent() {
   const [newsItems, setNewsItems] = useState([]);
 
   useEffect(() => {
-    fetch("https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/news")
+    fetch("https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/news")
       .then((res) => res.json())
       .then((data) => {
         setNewsItems(data);

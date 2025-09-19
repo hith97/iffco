@@ -11,7 +11,7 @@ function SingleCSR() {
     });
   
     useEffect(() => {
-      fetch("https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/pages/227?_embed")
+      fetch("https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/pages/227?_embed")
         .then((res) => res.json())
         .then((data) => {
           setPageData({

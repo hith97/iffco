@@ -93,7 +93,7 @@ export default function LatestFromTabs({ data }) {
   useEffect(() => {
     if (activeTab !== "news") return;
 
-    fetch("https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/news?_embed")
+    fetch("https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/news?_embed")
       .then((res) => res.json())
       .then((json) => {
         console.log("News API response:", json); // <--- optional but helpful
@@ -115,7 +115,7 @@ export default function LatestFromTabs({ data }) {
   useEffect(() => {
     if (activeTab !== "events") return;
 
-    fetch("https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/mediarelease?_embed")
+    fetch("https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/mediarelease?_embed")
       .then((res) => res.json())
       .then((json) => {
         const formatted = json.map((item) => ({
@@ -134,7 +134,7 @@ export default function LatestFromTabs({ data }) {
     if (activeTab !== "awards") return;
 
     fetch(
-      "https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/awards?_embed&order=asc"
+      "https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/awards?_embed&order=asc"
     )
       .then((res) => res.json())
       .then((json) => {
@@ -154,7 +154,7 @@ export default function LatestFromTabs({ data }) {
   useEffect(() => {
     if (activeTab !== "videos") return;
 
-    fetch("https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/videos")
+    fetch("https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/videos")
       .then((res) => res.json())
       .then((json) => {
         const formatted = json.map((item) => ({

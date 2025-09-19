@@ -7,7 +7,7 @@ export default function SingleBlogPage() {
   const { slug } = useParams();
 
   useEffect(() => {
-    fetch(`https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/posts?slug=${slug}&_embed`)
+    fetch(`https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/posts?slug=${slug}&_embed`)
       .then((res) => res.json())
       .then((data) => {
         if (data.length > 0) setNews(data[0]); // WP returns array for slug query

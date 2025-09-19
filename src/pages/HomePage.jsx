@@ -13,7 +13,7 @@ function HomePage() {
   const [seoMeta, setSeoMeta] = useState(null);
 
   useEffect(() => {
-    fetch("https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/pages/37")
+    fetch("https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/pages/37")
       .then((res) => res.json())
       .then((data) => {
         const acf = data.acf;

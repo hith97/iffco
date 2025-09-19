@@ -13,7 +13,7 @@ export default function SingleCareerPage() {
   });
 
   useEffect(() => {
-    fetch(`https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/career/${id}?_embed`)
+    fetch(`https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/career/${id}?_embed`)
       .then((res) => res.json())
       .then((data) => setNews(data))
       .catch((err) => console.error("Error fetching single news:", err));

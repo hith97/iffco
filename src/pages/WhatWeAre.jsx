@@ -8,7 +8,7 @@ function WhatWeAre() {
   const [featuredImage, setFeaturedImage] = useState(null);
 
   useEffect(() => {
-    fetch("https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/pages/415?_embed")
+    fetch("https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/pages/415?_embed")
       .then((res) => res.json())
       .then((data) => {
         const imageUrl = data?._embedded?.["wp:featuredmedia"]?.[0]?.source_url;

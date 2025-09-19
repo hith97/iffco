@@ -6,7 +6,7 @@ function Privacy() {
   const [pageContent, setPageContent] = useState("");
 
   useEffect(() => {
-    fetch("https://iffcomcbackend.iffcomc.in/wp-json/wp/v2/pages/220")
+    fetch("https://iffcomc.in/Iffcomcbackend/wp-json/wp/v2/pages/220")
       .then((res) => res.json())
       .then((data) => {
         setPageContent(data.content?.rendered || "");
