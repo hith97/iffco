@@ -134,13 +134,14 @@ export default function ProductTabs() {
 }
 
 // Utility to determine category badge color
+// Utility to determine category badge color
 function getCategoryColor(category) {
   const colorMap = {
-    Herbicide: "bg-green-600",
-    Insecticide: "bg-orange-500",
-    Fungicide: "bg-blue-600",
-    PGR: "bg-pink-600",
-    Biological: "bg-purple-600",
+    Herbicide: "#008C44",   // Green
+    Insecticide: "#FFBB00", // Yellow-Orange
+    Fungicide: "#00488C",   // Blue
+    PGR: "#B9006F",         // Pinkish Purple
+    Biological: "#861F00",  // Brownish Red
   };
-  return colorMap[category] || "bg-gray-400";
+  return colorMap[category] || "#808080"; // Default Gray
 }

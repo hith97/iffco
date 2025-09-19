@@ -23,7 +23,8 @@ export default function ProductCard({ product }) {
     >
       <div className="relative">
         <div
-          className={`absolute top-0 left-0 ${product.categoryColor} text-white px-3 py-1 text-sm font-semibold z-10`}
+          className={`proband absolute top-0 left-0 text-white px-3 py-1 text-sm font-semibold z-10`}
+           style={{ "--category-color": product.categoryColor }}
         >
           {product.categoryLabel}
         </div>

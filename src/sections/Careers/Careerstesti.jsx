@@ -65,9 +65,9 @@ export default function NewsSection() {
                   <div className="relative max-w-4xl mx-auto py-4">
                     <div className="bg-white shadow-xl overflow-hidden flex justify-between flex-col md:flex-row testiin">
                       {/* Content */}
-                      <div className="w-[100%] sm:w-[60%] text-left p-[15px] pb-[0px] sm:pr-[20px] sm:p-[80px]">
+                      <div className="w-[100%] sm:w-[60%] text-left p-[15px] pb-[0px] sm:pr-[20px] sm:p-[80px] sm:py-[60px]">
                         <div
-                          className="text-gray-700 text-base md:text-lg leading-relaxed mb-4"
+                          className="text-gray-700 text-base md:text-sm leading-relaxed mb-4"
                           dangerouslySetInnerHTML={{ __html: item.content }}
                         />
                         <div className="mt-4">

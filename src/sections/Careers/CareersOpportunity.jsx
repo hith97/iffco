@@ -54,7 +54,7 @@ export default function CareersOpportunity() {
               {newsItems.map((item) => (
                 <SwiperSlide key={item.id}>
                   <div className="relative max-w-4xl mx-auto py-4">
-                    <div className="bg-white shadow-xl overflow-hidden flex items-center justify-between flex-col md:flex-row testiin">
+                    <div className="bg-white shadow-xl overflow-hidden flex items-center justify-between flex-col md:flex-row testiin careercar">
                       {/* Image */}
                       <div className="w-[40%] overflow-hidden shadow-lg rightimg lftimg">
                         <div className="careerjd">

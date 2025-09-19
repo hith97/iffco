@@ -427,7 +427,7 @@ section.blogimg {
 }
 .careerjd {
     transform: skewX(15deg);
-    margin-left: 110px;
+    margin-left: 60px;
     padding: 40px;
 }
 .careerjd p {
@@ -471,6 +471,32 @@ section.blogimg.careersingle .newcon li {
 section.blogimg.careersingle .newcon ul {
     display: flex;
     flex-direction: column;
+}
+.testiin .rightimg img {
+    max-height: 400px;
+}
+.testiin p {
+    font-size: 16px;
+    line-height: 26px;
+}
+.proband::after {
+  background: var(--category-color, #000); /* fallback black */
+  content: " ";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 20%;
+  z-index: -1;
+  transform: skewX(-20deg);
+}
+.proband {
+  background: var(--category-color, #000); /* fallback */
+}
+@media(min-width:991px){
+ .testiin.careercar {
+    border-radius: 50px;
+}
 }
 @media(min-width:1199px){
     .careerintro img.max-w-full.h-auto {
